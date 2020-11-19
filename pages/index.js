@@ -2,7 +2,13 @@ import Head from "next/head";
 import { useState } from "react";
 import useSWR from "swr";
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
-import { first, second, third, songName } from "../components/Animations";
+import {
+  first,
+  second,
+  third,
+  fourth,
+  songName,
+} from "../components/Animations";
 import styles from "../styles/Home.module.css";
 
 export async function getStaticProps() {
@@ -13,6 +19,16 @@ export async function getStaticProps() {
 }
 
 export default function Home(props) {
+  const [date, setTime] = useState(new Date().toLocaleTimeString());
+  const [hour, setHour] = useState(
+    new Date().toLocaleTimeString([], { hour: "2-digit" })
+  );
+
+  setInterval(() => {
+    setTime(new Date().toLocaleTimeString());
+    setHour(new Date().toLocaleTimeString([], { hour: "2-digit" }));
+  }, 1000);
+
   const fetcher = (url) => fetch(url).then((res) => res.json());
   const { data } = useSWR("https://api.ipify.org/?format=json", fetcher, {
     initialData: props.req,
@@ -25,6 +41,14 @@ export default function Home(props) {
       </Head>
       <div className="album-art"></div>
       <div className="flex flex-row items-center justify-center z-10 absolute w-full h-full">
+        <motion.div
+          initial="initial"
+          animate="enter"
+          variants={fourth}
+          className="font-bold text-white m-6 absolute top-0 left-0"
+        >
+          {date}
+        </motion.div>
         <motion.div initial="initial" animate="enter" variants={first}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -66,12 +90,7 @@ export default function Home(props) {
               className="font-extrabold text-3xl hover:underline cursor-pointer"
               variants={songName}
             >
-              New Horizons -{" "}
-              <span>
-                {new Date().getHours() > 12
-                  ? new Date().getHours() - 12 + "PM"
-                  : new Date().getHours() + "AM"}
-              </span>
+              New Horizons - <span>{hour}</span>
             </motion.span>
             <br />
             Animal Crossing{" "}
