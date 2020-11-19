@@ -1,7 +1,7 @@
 import Head from "next/head";
 import { useState } from "react";
 import useSWR from "swr";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import { first, second, third, songName } from "../components/Animations";
 import styles from "../styles/Home.module.css";
 
@@ -13,8 +13,6 @@ export async function getStaticProps() {
 }
 
 export default function Home(props) {
-  const [newSong, setSongState] = useState(false);
-
   const fetcher = (url) => fetch(url).then((res) => res.json());
   const { data } = useSWR("https://api.ipify.org/?format=json", fetcher, {
     initialData: props.req,
@@ -25,39 +23,109 @@ export default function Home(props) {
         <title>Animal Crossing</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className="flex flex-col items-center justify-center">
-        <motion.hr
+      <div className="album-art"></div>
+      <div className="flex flex-row items-center justify-center z-10 absolute w-full h-full">
+        <motion.div initial="initial" animate="enter" variants={first}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            className="h-8 w-8 text-white cursor-pointer"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+            />
+          </svg>
+        </motion.div>
+        <motion.img
+          src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.nintendolife.com%2F307153236927c%2Fanimal-crossing-new-horizons.original.jpg&f=1&nofb=1"
+          className="mt-5 max-w-xl w-full rounded-xl shadow-lg cursor-pointer"
           initial="initial"
           animate="enter"
-          className="mt-8 h-2 w-1/2 lg:w-4/12"
           variants={first}
         />
-        <motion.div
-          initial="initial"
-          animate="enter"
-          className="font-bold p-3 text-lg md:text-2xl text-black"
-          variants={second}
-        >
-          {data}{" "}
-          <motion.span initial="initial" animate="enter" variants={third}>
-            •
-          </motion.span>{" "}
-          <motion.span
+        <div className="flex-col">
+          <motion.div
             initial="initial"
-            animate={newSong ? "leave" : "enter"}
-            variants={songName}
+            animate="enter"
+            className="font-bold p-3 text-lg md:text-2xl text-white cursor-default"
+            variants={second}
           >
-            GCN - 12PM
-          </motion.span>
-        </motion.div>
-      </div>
+            <motion.span
+              initial="initial"
+              animate="enter"
+              variants={third}
+            ></motion.span>{" "}
+            <motion.span
+              initial="initial"
+              animate="enter"
+              className="font-extrabold text-3xl hover:underline cursor-pointer"
+              variants={songName}
+            >
+              New Horizons -{" "}
+              <span>
+                {new Date().getHours() > 12
+                  ? new Date().getHours() - 12 + "PM"
+                  : new Date().getHours() + "AM"}
+              </span>
+            </motion.span>
+            <br />
+            Animal Crossing{" "}
+          </motion.div>
+          <motion.div
+            initial="initial"
+            animate="enter"
+            className="font-bold p-3 text-white flex flex-row"
+            variants={third}
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 20 20"
+              fill="currentColor"
+              className="h-6 w-6 cursor-default"
+            >
+              <path
+                fillRule="evenodd"
+                d="M9.383 3.076A1 1 0 0110 4v12a1 1 0 01-1.707.707L4.586 13H2a1 1 0 01-1-1V8a1 1 0 011-1h2.586l3.707-3.707a1 1 0 011.09-.217zM14.657 2.929a1 1 0 011.414 0A9.972 9.972 0 0119 10a9.972 9.972 0 01-2.929 7.071 1 1 0 01-1.414-1.414A7.971 7.971 0 0017 10c0-2.21-.894-4.208-2.343-5.657a1 1 0 010-1.414zm-2.829 2.828a1 1 0 011.415 0A5.983 5.983 0 0115 10a5.984 5.984 0 01-1.757 4.243 1 1 0 01-1.415-1.415A3.984 3.984 0 0013 10a3.983 3.983 0 00-1.172-2.828 1 1 0 010-1.415z"
+                clipRule="evenodd"
+              />
+            </svg>
 
-      <button
-        className="border-2 rounded-lg border-green-500 hover:border-teal-400 p-2 px-4"
-        onClick={() => setSongState(!newSong)}
-      >
-        Test
-      </button>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              className="w-4 h-4 ml-4 mt-1 cursor-pointer"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M12 6v6m0 0v6m0-6h6m-6 0H6"
+              />
+            </svg>
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              className="w-4 h-4 ml-2 mt-1 cursor-pointer"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M18 12H6"
+              />
+            </svg>
+          </motion.div>
+        </div>
+      </div>
     </>
   );
 }

@@ -20,3 +20,36 @@ hr {
   border-top: 1rem solid black;
   border-radius: 5px;
 }
+
+img:hover {
+  transition: 0.7s ease-in-out filter;
+  filter: blur(1px);
+}
+
+.album-art {
+  background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.nintendolife.com%2F307153236927c%2Fanimal-crossing-new-horizons.original.jpg&f=1&nofb=1);
+
+  filter: blur(10px);
+  -webkit-filter: blur(10px);
+
+  height: 100%;
+  width: 100%;
+  position: absolute;
+
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.slider::-webkit-slider-thumb {
+  color: #fff;
+}
+
+.slider::-moz-range-thumb {
+  color: #fff;
+}
+
+.slider::-webkit-slider-runnable-track {
+  color: #444;
+  -webkit-appearance: none;
+}
