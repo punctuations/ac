@@ -27,7 +27,7 @@ img:hover {
 }
 
 .album-art {
-  background-image: url(https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.nintendolife.com%2F307153236927c%2Fanimal-crossing-new-horizons.original.jpg&f=1&nofb=1);
+  background-image: url(/albums/newhorizons.jpeg);
 
   filter: blur(10px);
   -webkit-filter: blur(10px);

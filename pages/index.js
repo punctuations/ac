@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import useSWR from "swr";
 import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
 import {
@@ -19,6 +19,14 @@ export async function getStaticProps() {
 }
 
 export default function Home(props) {
+  // const music = new Audio(
+  //   `/music/New Horizons/${new Date().toLocaleTimeString([], {
+  //     hour: "2-digit",
+  //   })}.mp3`
+  // );
+  // music.play();
+  // fix this
+
   const [date, setTime] = useState(new Date().toLocaleTimeString());
   const [hour, setHour] = useState(
     new Date().toLocaleTimeString([], { hour: "2-digit" })
@@ -39,6 +47,7 @@ export default function Home(props) {
         <title>Animal Crossing</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      {/* <audio controls autoplay loop src="/music/New Horizons/10PM.mp3"></audio> */}
       <div className="album-art"></div>
       <div className="flex flex-row items-center justify-center z-10 absolute w-full h-full">
         <motion.div
@@ -66,7 +75,7 @@ export default function Home(props) {
           </svg>
         </motion.div>
         <motion.img
-          src="https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fimages.nintendolife.com%2F307153236927c%2Fanimal-crossing-new-horizons.original.jpg&f=1&nofb=1"
+          src="/albums/newhorizons.jpeg"
           className="mt-5 max-w-xl w-full rounded-xl shadow-lg cursor-pointer"
           initial="initial"
           animate="enter"
