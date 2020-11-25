@@ -4,7 +4,6 @@ node_modules
 
 # docker
 Dockerfile*
-docker-compose*
 
 # debug
 npm-debug.log*
