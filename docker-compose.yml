@@ -1,0 +1,13 @@
+version: "3.3"
+
+services:
+  nextjs:
+    ports:
+      - localhost:3000
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/ac
+      - /ac/node_modules
+      - /ac/.next
