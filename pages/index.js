@@ -8,7 +8,7 @@ import {
   third,
   fourth,
   songName,
-} from "../components/Animations";
+} from "../components/animations";
 import styles from "../styles/Home.module.css";
 
 export async function getStaticProps() {
