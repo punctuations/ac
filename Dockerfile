@@ -17,5 +17,4 @@ COPY . /ac
 
 EXPOSE 3000
 
-RUN docker-compose up
-CMD [ "npm", "run", "dev" ]
+# CMD [ "npm", "run", "dev" ]
