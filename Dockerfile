@@ -11,9 +11,6 @@ WORKDIR /ac
 # Install app dependencies
 RUN npm install
 
-# Bundle app source
-COPY . /ac
-
 EXPOSE 3000
 
 # CMD [ "npm", "run", "dev" ]
