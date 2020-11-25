@@ -9,7 +9,6 @@ RUN apk update && \
 WORKDIR /ac
 
 # Install app dependencies
-COPY package*.json /ac/
 RUN npm install
 
 # Bundle app source
