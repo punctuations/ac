@@ -16,5 +16,3 @@ RUN npm install
 COPY . /ac
 
 EXPOSE 3000
-
-RUN npm run dev

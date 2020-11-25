@@ -10,3 +10,4 @@ services:
       - .:/ac
       - /ac/node_modules
       - /ac/.next
+    command: npm run dev
