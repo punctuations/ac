@@ -3,7 +3,9 @@ FROM node:10-alpine
 ENV PORT 3000
 
 # Create app directory
-RUN git clone https://github.com/punctuations/ac /ac
+RUN apk update && \
+    apk add nodejs npm git nano && \
+    git clone https://github.com/punctuations/ac /ac
 WORKDIR /ac
 
 # Install app dependencies
