@@ -4,9 +4,8 @@ services:
   nextjs:
     ports:
       - 3000:3000
-    build:
-      context: .
-      dockerfile: Dockerfile
+    image: alloutofmatt/ac:alpha
+    build: .
     volumes:
       - .:/ac
       - /ac/node_modules
