@@ -8,6 +8,7 @@ import {
   third,
   fourth,
   songName,
+  menu
 } from "../components/animations";
 import styles from "../styles/Home.module.css";
 
@@ -26,11 +27,43 @@ export default function Home(props) {
   // );
   // music.play();
   // fix this
+  
+  function menuSelection() {
+      switch(album) {
+        case 0:
+          return "/albums/newhorizons.jpeg";
+        case 1:
+          return "/albums/newleaf.jpeg";
+        case 2:
+          return "/albums/cityfolk.jpeg";
+        case 3:
+          return "/albums/GCN.jpeg"
+        default:
+          return '';
+      }
+  }
+  function backgroundArt() {
+    switch(album) {
+      case 0:
+        return <div className="album-horizons"></div>;
+      case 1:
+        return <div className="album-leaf"></div>;
+      case 2:
+        return <div className="album-city"></div>;
+      case 3:
+        return <div className="album-gcn"></div>;
+      default:
+        return '';
+    }
+}
 
   const [date, setTime] = useState(new Date().toLocaleTimeString());
   const [hour, setHour] = useState(
     new Date().toLocaleTimeString([], { hour: "2-digit" })
   );
+
+  const [gameMenu, setMenu] = useState(false);
+  const [album, setAlbum] = useState(0);
 
   setInterval(() => {
     setTime(new Date().toLocaleTimeString());
@@ -48,7 +81,7 @@ export default function Home(props) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* <audio controls autoplay loop src="/music/New Horizons/10PM.mp3"></audio> */}
-      <div className="album-art"></div>
+      {backgroundArt()}
       <div className="flex flex-row items-center justify-center z-10 absolute w-full h-full">
         <motion.div
           initial="initial"
@@ -58,7 +91,22 @@ export default function Home(props) {
         >
           {date}
         </motion.div>
-        <motion.div initial="initial" animate="enter" variants={first}>
+        <AnimatePresence initial={false}>
+        {gameMenu && (
+            <motion.div
+            initial="initial"
+            animate="open"
+            exit="close"
+            variants={menu}
+            className="p-10 menu-bg rounded-lg shadow shadow-xl">
+                <img src="/albums/newhorizons.jpeg" className="w-64 h-32 rounded-md cursor-pointer" onClick={() => setAlbum(0)}></img>
+                <img src="/albums/newleaf.jpeg" className="w-64 h-32 rounded-md cursor-pointer mt-4" onClick={() => setAlbum(1)}></img>
+                <img src="/albums/cityfolk.jpeg" className="w-64 h-32 rounded-md cursor-pointer mt-4" onClick={() => setAlbum(2)}></img>
+                <img src="/albums/GCN.jpeg" className="w-64 h-32 rounded-md cursor-pointer mt-4" onClick={() => setAlbum(3)}></img>
+            </motion.div>
+        )}
+        </AnimatePresence>
+        <motion.div initial="initial" animate="enter" variants={first} onClick={() => setMenu(!gameMenu)}>
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -75,7 +123,7 @@ export default function Home(props) {
           </svg>
         </motion.div>
         <motion.img
-          src="/albums/newhorizons.jpeg"
+          src={menuSelection()}
           className="mt-5 max-w-xl w-full rounded-xl shadow-lg cursor-pointer"
           initial="initial"
           animate="enter"

@@ -26,9 +26,7 @@ img:hover {
   filter: blur(1px);
 }
 
-.album-art {
-  background-image: url(/albums/newhorizons.jpeg);
-
+.album-horizons, .album-leaf, .album-city, .album-gcn {
   filter: blur(10px);
   -webkit-filter: blur(10px);
 
@@ -39,6 +37,23 @@ img:hover {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.album-horizons {
+  background-image: url(/albums/newhorizons.jpeg);
+}
+.album-leaf {
+  background-image: url(/albums/newleaf.jpeg);
+}
+.album-city {
+  background-image: url(/albums/cityfolk.jpeg);
+}
+.album-gcn {
+  background-image: url(/albums/GCN.jpeg);
+}
+
+.menu-bg {
+  background-color: rgb(223, 211, 209, 0.3)
 }
 
 .slider::-webkit-slider-thumb {
