@@ -4,7 +4,7 @@ ENV PORT 3000
 
 # Create app directory
 RUN apk update && \
-    apk add nodejs npm git nano && \
+    apk add nodejs npm git nano docker-compose && \
     git clone https://github.com/punctuations/ac /ac
 WORKDIR /ac
 
