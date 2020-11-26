@@ -1,14 +1,14 @@
 import Head from "next/head";
 import { useState, useEffect } from "react";
 import useSWR from "swr";
-import { motion, AnimatePresence, AnimateSharedLayout } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
   first,
   second,
   third,
   fourth,
   songName,
-  menu
+  menu,
 } from "../components/animations";
 import styles from "../styles/Home.module.css";
 
@@ -20,30 +20,28 @@ export async function getStaticProps() {
 }
 
 export default function Home(props) {
-  // const music = new Audio(
+  // const song = new Audio(
   //   `/music/New Horizons/${new Date().toLocaleTimeString([], {
   //     hour: "2-digit",
   //   })}.mp3`
   // );
-  // music.play();
-  // fix this
-  
+
   function menuSelection() {
-      switch(album) {
-        case 0:
-          return "/albums/newhorizons.jpeg";
-        case 1:
-          return "/albums/newleaf.jpeg";
-        case 2:
-          return "/albums/cityfolk.jpeg";
-        case 3:
-          return "/albums/GCN.jpeg"
-        default:
-          return '';
-      }
+    switch (album) {
+      case 0:
+        return "/albums/newhorizons.jpeg";
+      case 1:
+        return "/albums/newleaf.jpeg";
+      case 2:
+        return "/albums/cityfolk.jpeg";
+      case 3:
+        return "/albums/GCN.jpeg";
+      default:
+        return "";
+    }
   }
   function backgroundArt() {
-    switch(album) {
+    switch (album) {
       case 0:
         return <div className="album-horizons"></div>;
       case 1:
@@ -53,9 +51,23 @@ export default function Home(props) {
       case 3:
         return <div className="album-gcn"></div>;
       default:
-        return '';
+        return "";
     }
-}
+  }
+  function gameName() {
+    switch (album) {
+      case 0:
+        return "New Horizons";
+      case 1:
+        return "New Leaf";
+      case 2:
+        return "City Folk";
+      case 3:
+        return "Gamecube";
+      default:
+        return "";
+    }
+  }
 
   const [date, setTime] = useState(new Date().toLocaleTimeString());
   const [hour, setHour] = useState(
@@ -74,13 +86,13 @@ export default function Home(props) {
   const { data } = useSWR("https://api.ipify.org/?format=json", fetcher, {
     initialData: props.req,
   });
+
   return (
     <>
       <Head>
         <title>Animal Crossing</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      {/* <audio controls autoplay loop src="/music/New Horizons/10PM.mp3"></audio> */}
       {backgroundArt()}
       <div className="flex flex-row items-center justify-center z-10 absolute w-full h-full">
         <motion.div
@@ -92,21 +104,43 @@ export default function Home(props) {
           {date}
         </motion.div>
         <AnimatePresence initial={false}>
-        {gameMenu && (
+          {gameMenu && (
             <motion.div
-            initial="initial"
-            animate="open"
-            exit="close"
-            variants={menu}
-            className="p-10 menu-bg rounded-lg shadow shadow-xl">
-                <img src="/albums/newhorizons.jpeg" className="w-64 h-32 rounded-md cursor-pointer" onClick={() => setAlbum(0)}></img>
-                <img src="/albums/newleaf.jpeg" className="w-64 h-32 rounded-md cursor-pointer mt-4" onClick={() => setAlbum(1)}></img>
-                <img src="/albums/cityfolk.jpeg" className="w-64 h-32 rounded-md cursor-pointer mt-4" onClick={() => setAlbum(2)}></img>
-                <img src="/albums/GCN.jpeg" className="w-64 h-32 rounded-md cursor-pointer mt-4" onClick={() => setAlbum(3)}></img>
+              initial="initial"
+              animate="open"
+              exit="close"
+              variants={menu}
+              className="p-10 menu-bg rounded-lg shadow-xl"
+            >
+              <img
+                src="/albums/newhorizons.jpeg"
+                className="w-64 h-32 rounded-md cursor-pointer"
+                onClick={() => setAlbum(0)}
+              ></img>
+              <img
+                src="/albums/newleaf.jpeg"
+                className="w-64 h-32 rounded-md cursor-pointer mt-4"
+                onClick={() => setAlbum(1)}
+              ></img>
+              <img
+                src="/albums/cityfolk.jpeg"
+                className="w-64 h-32 rounded-md cursor-pointer mt-4"
+                onClick={() => setAlbum(2)}
+              ></img>
+              <img
+                src="/albums/GCN.jpeg"
+                className="w-64 h-32 rounded-md cursor-pointer mt-4"
+                onClick={() => setAlbum(3)}
+              ></img>
             </motion.div>
-        )}
+          )}
         </AnimatePresence>
-        <motion.div initial="initial" animate="enter" variants={first} onClick={() => setMenu(!gameMenu)}>
+        <motion.div
+          initial="initial"
+          animate="enter"
+          variants={first}
+          onClick={() => setMenu(!gameMenu)}
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -147,7 +181,7 @@ export default function Home(props) {
               className="font-extrabold text-3xl hover:underline cursor-pointer"
               variants={songName}
             >
-              New Horizons - <span>{hour}</span>
+              {gameName()} - <span>{hour}</span>
             </motion.span>
             <br />
             Animal Crossing{" "}
