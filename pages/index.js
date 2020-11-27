@@ -101,7 +101,7 @@ export default function Home(props) {
 	return (
 		<>
 			<Head>
-				<title>Animal Crossing</title>
+				<title>Animal Crossing - {hour}</title>
 				<link rel="icon" href="/favicon.ico" />
 			</Head>
 			{backgroundArt()}
