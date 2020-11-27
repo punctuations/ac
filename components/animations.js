@@ -63,17 +63,6 @@ export const songName = {
       ease: [0.48, 0.15, 0.25, 0.96],
     },
   },
-  leave: {
-    scale: 1,
-    y: -20,
-    x: 0,
-    opacity: 0,
-    transition: {
-      duration: 0.5,
-      delay: 0.2,
-      ease: [0.48, 0.15, 0.25, 0.96],
-    },
-  },
 };
 
 
@@ -96,4 +85,18 @@ export const menu = {
       ease: [0.48, 0.15, 0.25, 0.96],
     },
   }
+}
+
+export const playButton = {
+  initial: { y: 40, x: 0, opacity: 0 },
+  play: {
+    scale: 1,
+    y: 0,
+    x: 0,
+    opacity: 1,
+    transition: {
+      duration: 0.7,
+      ease: [0.48, 0.15, 0.25, 0.96],
+    },
+  },
 }

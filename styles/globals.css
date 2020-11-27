@@ -1,70 +1,91 @@
 html,
 body {
-  padding: 0;
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
-    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
-  background-color: e5e8e7;
+	padding: 0;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+		Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+	background-color: e5e8e7;
 }
 
 a {
-  color: inherit;
-  text-decoration: none;
+	color: inherit;
+	text-decoration: none;
 }
 
 * {
-  box-sizing: border-box;
+	box-sizing: border-box;
 }
 
 hr {
-  border-top: 1rem solid black;
-  border-radius: 5px;
+	border-top: 1rem solid black;
+	border-radius: 5px;
+}
+
+img {
+	transition: 0.7s ease-in-out filter;
 }
 
 img:hover {
-  transition: 0.7s ease-in-out filter;
-  filter: blur(1px);
+	filter: blur(1px);
 }
 
-.album-horizons, .album-leaf, .album-city, .album-gcn {
-  filter: blur(10px);
-  -webkit-filter: blur(10px);
+.album-horizons,
+.album-leaf,
+.album-city,
+.album-gcn {
+	filter: blur(10px);
+	-webkit-filter: blur(10px);
 
-  height: 100%;
-  width: 100%;
-  position: absolute;
+	height: 100%;
+	width: 100%;
+	position: absolute;
 
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+	background-position: center;
+	background-repeat: no-repeat;
+	background-size: cover;
 }
 
 .album-horizons {
-  background-image: url(/albums/newhorizons.jpeg);
+	background-image: url(/albums/newhorizons.jpeg);
 }
 .album-leaf {
-  background-image: url(/albums/newleaf.jpeg);
+	background-image: url(/albums/newleaf.jpeg);
 }
 .album-city {
-  background-image: url(/albums/cityfolk.jpeg);
+	background-image: url(/albums/cityfolk.jpeg);
 }
 .album-gcn {
-  background-image: url(/albums/GCN.jpeg);
+	background-image: url(/albums/GCN.jpeg);
 }
 
 .menu-bg {
-  background-color: rgb(223, 211, 209, 0.3)
+	background-color: rgb(223, 211, 209, 0.3);
+}
+
+.play-bg {
+	transition: 0.7s ease-in-out filter;
+	background-color: rgb(223, 211, 209, 0.6);
+}
+
+.play-bg:hover {
+	filter: blur(1px);
+	-webkit-filter: blur(1px);
+}
+
+.play-btn {
+	top: 7.8rem;
+	left: 16rem;
 }
 
 .slider::-webkit-slider-thumb {
-  color: #fff;
+	color: #fff;
 }
 
 .slider::-moz-range-thumb {
-  color: #fff;
+	color: #fff;
 }
 
 .slider::-webkit-slider-runnable-track {
-  color: #444;
-  -webkit-appearance: none;
+	color: #444;
+	-webkit-appearance: none;
 }
