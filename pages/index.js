@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { AudioPlayerProvider } from "react-use-audio-player";
 import AudioPlayer from "../components/AudioPlayer";
 import useSWR from "swr";
@@ -23,16 +23,12 @@ export async function getStaticProps() {
 }
 
 export default function Home(props) {
-	const [volume, setVolume] = useState(100);
-
 	function audioUp() {
-		setVolume(volume + 10);
-		if (volume > 100) setVolume(100);
+		Howler.volume(Howler.volume() + 0.1);
 	}
 
 	function audioDown() {
-		setVolume(volume - 10);
-		if (volume < 0) setVolume(0);
+		Howler.volume(Howler.volume() - 0.1);
 	}
 
 	function menuSelection() {
@@ -190,7 +186,6 @@ export default function Home(props) {
 										hour: "2-digit",
 									}
 								)}.mp3`}
-								level={volume / 100}
 								pauseButton="/pause.svg"
 								playButton="/play.svg"
 							/>
@@ -230,7 +225,7 @@ export default function Home(props) {
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 20 20"
 							fill="currentColor"
-							className="h-6 w-6 cursor-default"
+							className="h-6 w-6 cursor-pointer"
 						>
 							<path
 								fillRule="evenodd"
@@ -244,7 +239,7 @@ export default function Home(props) {
 							fill="none"
 							viewBox="0 0 24 24"
 							stroke="currentColor"
-							className="w-4 h-4 ml-4 mt-1 cursor-pointer"
+							className="w-4 h-4 ml-4 mt-1 cursor-pointer select-none"
 							onClick={() => audioUp()}
 						>
 							<path
@@ -259,7 +254,7 @@ export default function Home(props) {
 							fill="none"
 							viewBox="0 0 24 24"
 							stroke="currentColor"
-							className="w-4 h-4 ml-2 mt-1 cursor-pointer"
+							className="w-4 h-4 ml-2 mt-1 cursor-pointer select-none"
 							onClick={() => audioDown()}
 						>
 							<path
