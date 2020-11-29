@@ -1,0 +1,13 @@
+
+ac:
+  ☐ Website
+  // Website todo
+    ☐ Make background fade in/out when transitioning games                                                                                                   @matt @critical
+    ☐ Add weather music aswell by using APIs                                                                                                                 @matt @high
+    ☐ Make volume buttons more responsive (grow/shrink on click)                                                                                             @matt @high
+    ☐ Add volume bar                                                                                                                                         @matt @low
+  ☐ API
+  // Add API
+    ☐ Create API repo                                                                                                                                        @matt @critical
+    ☐ Allow API to return the time and Animal Crossing song                                                                                                  @matt @critical
+    ☐ Return JSON like shown { time: '08 PM', firefoxTime: '8 PM', music: [ { game: 'New Horizons', file: '08 PM.mp3', firefoxFile: '8 PM.mp3' }, { ... } ] }@matt @high
