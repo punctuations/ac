@@ -3,7 +3,7 @@ import { useState } from "react";
 import { AudioPlayerProvider } from "react-use-audio-player";
 import AudioPlayer from "../components/AudioPlayer";
 import useSWR from "swr";
-import { motion, AnimatePresence } from "framer-motion";
+import { motion, AnimatePresence, useMotionValue } from "framer-motion";
 import {
 	first,
 	second,
@@ -23,6 +23,8 @@ export async function getStaticProps() {
 }
 
 export default function Home(props) {
+	function dragToVolume() {}
+
 	function audioUp() {
 		Howler.volume(Howler.volume() + 0.1);
 	}
@@ -48,13 +50,45 @@ export default function Home(props) {
 	function backgroundArt() {
 		switch (album) {
 			case 0:
-				return <div className="album-horizons"></div>;
+				return (
+					<motion.div
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						transition={{ duration: 1 }}
+						exit={{ opacity: 1 }}
+						className="album-horizons"
+					></motion.div>
+				);
 			case 1:
-				return <div className="album-leaf"></div>;
+				return (
+					<motion.div
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						transition={{ duration: 1 }}
+						exit={{ opacity: 1 }}
+						className="album-leaf"
+					></motion.div>
+				);
 			case 2:
-				return <div className="album-city"></div>;
+				return (
+					<motion.div
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						transition={{ duration: 1 }}
+						exit={{ opacity: 1 }}
+						className="album-city"
+					></motion.div>
+				);
 			case 3:
-				return <div className="album-gcn"></div>;
+				return (
+					<motion.div
+						initial={{ opacity: 0 }}
+						animate={{ opacity: 1 }}
+						transition={{ duration: 1 }}
+						exit={{ opacity: 1 }}
+						className="album-gcn"
+					></motion.div>
+				);
 			default:
 				return "";
 		}
@@ -83,6 +117,8 @@ export default function Home(props) {
 	const [album, setAlbum] = useState(0);
 
 	const [playback, setPlayback] = useState(false);
+
+	const [volumeBar, setVolumeHover] = useState(false);
 
 	setInterval(() => {
 		setTime(new Date().toLocaleTimeString());
@@ -124,7 +160,7 @@ export default function Home(props) {
 					rel="stylesheet"
 				></link>
 			</Head>
-			{backgroundArt()}
+			<AnimatePresence initial={false}>{backgroundArt()}</AnimatePresence>
 			<div className="flex flex-row items-center justify-center z-10 absolute w-full h-full">
 				<motion.div
 					initial="initial"
@@ -245,7 +281,7 @@ export default function Home(props) {
 						className="font-bold p-3 text-white flex flex-row"
 						variants={third}
 					>
-						<svg
+						<svg // soon to be mute button
 							xmlns="http://www.w3.org/2000/svg"
 							viewBox="0 0 20 20"
 							fill="currentColor"
@@ -258,13 +294,48 @@ export default function Home(props) {
 							/>
 						</svg>
 
-						<svg
+						<motion.div
+							className="ml-2 mt-1.5 px-1 flex flex-wrap content-center bg-white w-32 h-3 rounded-lg"
+							whileHover={{ scale: 1.1, height: 14 }}
+						>
+							<motion.div
+								className="bg-gray-200 w-10 h-1 rounded-md flex justify-end"
+								initial={{ width: `${Math.round(Howler.volume() * 100)}%` }}
+								animate={{ width: `${Math.round(Howler.volume() * 100)}%` }}
+								whileHover={() => setVolumeHover(true)}
+								onHoverEnd={() => setVolumeHover(false)}
+							>
+								<AnimatePresence initial={false}>
+									{volumeBar && (
+										<motion.div
+											className="bg-gray-300 w-2 h-2 rounded-lg -mt-0.5 content-center flex flex-wrap"
+											drag="x"
+											dragConstraints={{ left: 0, right: `100%` }}
+											onDragEnd={() => dragToVolume()}
+											initial={{
+												opacity: 0,
+											}}
+											animate={{
+												opacity: 1,
+											}}
+											exit={{ opacity: 0 }}
+											whileHover={{ scale: 1.5 }}
+										>
+											<motion.div className="bg-gray-200 w-1 h-1 rounded-lg ml-0.5"></motion.div>
+										</motion.div>
+									)}
+								</AnimatePresence>
+							</motion.div>
+						</motion.div>
+
+						<motion.svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
 							viewBox="0 0 24 24"
 							stroke="currentColor"
 							className="w-4 h-4 ml-4 mt-1 cursor-pointer select-none"
 							onClick={() => audioUp()}
+							whileTap={{ scale: 1.15 }}
 						>
 							<path
 								strokeLinecap="round"
@@ -272,14 +343,15 @@ export default function Home(props) {
 								strokeWidth={2}
 								d="M12 6v6m0 0v6m0-6h6m-6 0H6"
 							/>
-						</svg>
-						<svg
+						</motion.svg>
+						<motion.svg
 							xmlns="http://www.w3.org/2000/svg"
 							fill="none"
 							viewBox="0 0 24 24"
 							stroke="currentColor"
 							className="w-4 h-4 ml-2 mt-1 cursor-pointer select-none"
 							onClick={() => audioDown()}
+							whileTap={{ scale: 0.8 }}
 						>
 							<path
 								strokeLinecap="round"
@@ -287,7 +359,7 @@ export default function Home(props) {
 								strokeWidth={2}
 								d="M18 12H6"
 							/>
-						</svg>
+						</motion.svg>
 					</motion.div>
 				</div>
 			</div>
