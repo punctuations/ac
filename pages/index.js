@@ -99,6 +99,26 @@ export default function Home(props) {
 			<Head>
 				<title>Animal Crossing - {hour}</title>
 				<link rel="icon" href="/favicon.ico" />
+				<meta
+					name="viewport"
+					content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+				/>
+				<meta
+					name="description"
+					content="Animal Crossing Music Depending on the time!"
+				/>
+				<meta property="og:title" content="Animal Crossing Time" />
+				<meta property="og:image" content="/favicon.ico" />
+				<meta
+					property="og:description"
+					content="Animal Crossing Music Depending on the time!"
+				/>
+				<meta name="twitter:image" content="/favion.ico" />
+				<meta name="twitter:card" content="summary" />
+				<meta name="twitter:title" content="Animal Crossing Time" />
+				<meta name="twitter:creator" content="@wwwdotca" />
+				<meta name="twitter:site" content="@wwwdotca" />
+				<meta name="theme-color" content="#16b816" />
 				<link
 					href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
 					rel="stylesheet"
