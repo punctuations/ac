@@ -2,11 +2,11 @@
 
 Animal Crossing Time is a simple site inspired by [crossingti.me](https://crossingti.me) that plays different Animal Crossing songs depending on the time! It is currently in beta so please know that there **will** be bugs, if you happen to find some please either create an issue, or reach out ot me on [twitter](https://twitter.com/wwwdotca) or [discord](https://discord.gg/ASuqg75pAP).
 
-#### Have suggestions?
+#### 📝 Have suggestions?
 
 Feel free to contact me with suggestions you have to better this project and make it stand out! You can contact me with the methods stated above.
 
-#### I cloned the repo how do I run a development server?
+#### 🚀 I cloned the repo how do I run a development server?
 
 Start with:
 
@@ -24,7 +24,7 @@ yarn dev
 
 Open your browser and go to [localhost:3000](http://localhost:3000)!
 
-#### What's Next.js?
+#### ❔ What's Next.js?
 
 Next.js is a react framework for production.
 
