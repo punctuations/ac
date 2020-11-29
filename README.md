@@ -1,8 +1,20 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Animal Crossing Time 🍃
 
-## Getting Started
+Animal Crossing Time is a simple site inspired by [crossingti.me](https://crossingti.me) that plays different Animal Crossing songs depending on the time! It is currently in beta so please know that there **will** be bugs, if you happen to find some please either create an issue, or reach out ot me on [twitter](https://twitter.com/wwwdotca) or [discord](https://discord.gg/ASuqg75pAP).
 
-First, run the development server:
+#### Have suggestions?
+
+Feel free to contact me with suggestions you have to better this project and make it stand out! You can contact me with the methods stated above.
+
+#### I cloned the repo how do I run a development server?
+
+Start with:
+
+```bash
+npm i
+```
+
+Then start up the development server:
 
 ```bash
 npm run dev
@@ -10,21 +22,13 @@ npm run dev
 yarn dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open your browser and go to [localhost:3000](http://localhost:3000)!
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+#### What's Next.js?
 
-## Learn More
+Next.js is a react framework for production.
 
-To learn more about Next.js, take a look at the following resources:
+**You can learn more about Next.js with the links below:**
 
 - [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
 - [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/import?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
