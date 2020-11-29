@@ -295,11 +295,11 @@ export default function Home(props) {
 						</svg>
 
 						<motion.div
-							className="ml-2 mt-1.5 px-1 flex flex-wrap content-center bg-white w-32 h-3 rounded-lg"
+							className="ml-2 mt-1.5 px-1 flex flex-wrap content-center menu-bg w-32 h-3 rounded-lg"
 							whileHover={{ scale: 1.1, height: 14 }}
 						>
 							<motion.div
-								className="bg-gray-200 w-10 h-1 rounded-md flex justify-end"
+								className="bg-white w-10 h-1 rounded-md flex justify-end"
 								initial={{ width: `${Math.round(Howler.volume() * 100)}%` }}
 								animate={{ width: `${Math.round(Howler.volume() * 100)}%` }}
 								whileHover={() => setVolumeHover(true)}
@@ -308,7 +308,7 @@ export default function Home(props) {
 								<AnimatePresence initial={false}>
 									{volumeBar && (
 										<motion.div
-											className="bg-gray-300 w-2 h-2 rounded-lg -mt-0.5 content-center flex flex-wrap"
+											className="bg-gray-200 w-2 h-2 rounded-lg -mt-0.5 content-center flex flex-wrap"
 											drag="x"
 											dragConstraints={{ left: 0, right: `100%` }}
 											onDragEnd={() => dragToVolume()}
@@ -321,7 +321,7 @@ export default function Home(props) {
 											exit={{ opacity: 0 }}
 											whileHover={{ scale: 1.5 }}
 										>
-											<motion.div className="bg-gray-200 w-1 h-1 rounded-lg ml-0.5"></motion.div>
+											<motion.div className="bg-white w-1 h-1 rounded-lg ml-0.5"></motion.div>
 										</motion.div>
 									)}
 								</AnimatePresence>
