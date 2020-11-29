@@ -5,7 +5,9 @@ ac:
     ☐ Make background fade in/out when transitioning games                                                                                                   @matt @critical
     ☐ Add weather music aswell by using APIs                                                                                                                 @matt @high
     ☐ Make volume buttons more responsive (grow/shrink on click)                                                                                             @matt @high
+    ☐ Add 30min ver instead                                                                                                                                  @matt @high
     ☐ Add volume bar                                                                                                                                         @matt @low
+    ☐ Add mute button                                                                                                                                        @matt @low
   ☐ API
   // Add API
     ☐ Create API repo                                                                                                                                        @matt @critical
