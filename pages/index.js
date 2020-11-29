@@ -76,7 +76,7 @@ export default function Home(props) {
 
 	const [date, setTime] = useState(new Date().toLocaleTimeString());
 	const [hour, setHour] = useState(
-		new Date().toLocaleTimeString([], { hour: "2-digit" })
+		new Date().toLocaleTimeString(["en-US"], { hour: "2-digit" })
 	);
 
 	const [gameMenu, setMenu] = useState(false);
@@ -205,7 +205,7 @@ export default function Home(props) {
 						<AudioPlayerProvider>
 							<AudioPlayer
 								file={`/music/${gameName()}/${new Date().toLocaleTimeString(
-									[],
+									["en-US"],
 									{
 										hour: "2-digit",
 									}
