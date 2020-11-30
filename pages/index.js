@@ -177,26 +177,26 @@ export default function Home(props) {
 							animate="open"
 							exit="close"
 							variants={menu}
-							className="2xl:p-10 xl:p-10 lg:p-10 md:p-10 p-5 menu-bg rounded-lg shadow-xl"
+							className="2xl:flex-col xl:flex-col lg:flex-col md:flex-col flex-wrap content-center flex 2xl:p-10 xl:p-10 lg:p-10 md:p-10 p-5 menu-bg rounded-lg shadow-xl"
 						>
 							<img
 								src="/albums/newhorizons.jpeg"
-								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer"
+								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer 2xl:mt-0 xl:mt-0 lg:mt-0 md:mt-0 mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-8"
 								onClick={() => setAlbum(0)}
 							></img>
 							<img
 								src="/albums/newleaf.jpeg"
-								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer mt-4"
+								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-4"
 								onClick={() => setAlbum(1)}
 							></img>
 							<img
 								src="/albums/cityfolk.jpeg"
-								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer mt-4"
+								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-8"
 								onClick={() => setAlbum(2)}
 							></img>
 							<img
 								src="/albums/GCN.jpeg"
-								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer mt-4"
+								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-4"
 								onClick={() => setAlbum(3)}
 							></img>
 						</motion.div>
