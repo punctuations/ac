@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { AudioPlayerProvider } from "react-use-audio-player";
 import AudioPlayer from "../components/AudioPlayer";
 import useSWR from "swr";
@@ -23,6 +23,19 @@ export async function getStaticProps() {
 }
 
 export default function Home(props) {
+	useEffect(() => {
+		const albumElm = document.getElementById("album");
+		const { x, y, width, height } = albumElm.getBoundingClientRect();
+		const centerPoint = { x: x + width / 2, y: y + height / 2 };
+
+		window.addEventListener("mousemove", (e) => {
+			const degreeX = (e.clientY - centerPoint.y) * -0.008;
+			const degreeY = (e.clientX - centerPoint.x) * 0.008;
+
+			albumElm.style.transform = `perspective(1000px) rotateX(${degreeX}deg) rotateY(${degreeY}deg)`;
+		});
+	}, []);
+
 	function dragToVolume() {}
 
 	function audioUp() {
@@ -241,6 +254,7 @@ export default function Home(props) {
 					<motion.img
 						src={menuSelection()}
 						className="mt-5 max-w-xl w-full rounded-xl shadow-lg cursor-pointer"
+						id="album"
 						initial="initial"
 						animate="enter"
 						variants={first}
