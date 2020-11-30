@@ -161,7 +161,7 @@ export default function Home(props) {
 				></link>
 			</Head>
 			<AnimatePresence initial={false}>{backgroundArt()}</AnimatePresence>
-			<div className="flex flex-row items-center justify-center z-10 absolute w-full h-full">
+			<div className="flex 2xl:flex-row xl:flex-row lg:flex-row md:flex-row flex-col items-center justify-center z-10 absolute w-full h-full">
 				<motion.div
 					initial="initial"
 					animate="enter"
@@ -177,26 +177,26 @@ export default function Home(props) {
 							animate="open"
 							exit="close"
 							variants={menu}
-							className="p-10 menu-bg rounded-lg shadow-xl"
+							className="2xl:p-10 xl:p-10 lg:p-10 md:p-10 p-5 menu-bg rounded-lg shadow-xl"
 						>
 							<img
 								src="/albums/newhorizons.jpeg"
-								className="w-64 h-32 rounded-md cursor-pointer"
+								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer"
 								onClick={() => setAlbum(0)}
 							></img>
 							<img
 								src="/albums/newleaf.jpeg"
-								className="w-64 h-32 rounded-md cursor-pointer mt-4"
+								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer mt-4"
 								onClick={() => setAlbum(1)}
 							></img>
 							<img
 								src="/albums/cityfolk.jpeg"
-								className="w-64 h-32 rounded-md cursor-pointer mt-4"
+								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer mt-4"
 								onClick={() => setAlbum(2)}
 							></img>
 							<img
 								src="/albums/GCN.jpeg"
-								className="w-64 h-32 rounded-md cursor-pointer mt-4"
+								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer mt-4"
 								onClick={() => setAlbum(3)}
 							></img>
 						</motion.div>
@@ -213,13 +213,27 @@ export default function Home(props) {
 						fill="none"
 						viewBox="0 0 24 24"
 						stroke="currentColor"
-						className="h-8 w-8 text-white cursor-pointer"
+						className="h-8 w-8 text-white cursor-pointer 2xl:flex xl:flex lg:flex md:flex hidden"
 					>
 						<path
 							strokeLinecap="round"
 							strokeLinejoin="round"
 							strokeWidth={2}
 							d="M12 5v.01M12 12v.01M12 19v.01M12 6a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2zm0 7a1 1 0 110-2 1 1 0 010 2z"
+						/>
+					</svg>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+						className="h-8 w-8 text-white cursor-pointer 2xl:hidden xl:hidde lg:hidden md:hidden flex"
+					>
+						<path
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							strokeWidth={2}
+							d="M5 12h.01M12 12h.01M19 12h.01M6 12a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0zm7 0a1 1 0 11-2 0 1 1 0 012 0z"
 						/>
 					</svg>
 				</motion.div>
@@ -232,7 +246,7 @@ export default function Home(props) {
 						variants={first}
 					/>
 					<motion.div
-						className="play-bg absolute rounded-lg p-2 cursor-pointer play-btn"
+						className="play-bg absolute rounded-lg p-2 cursor-pointer 2xl:play-btn xl:play-btn lg:play-btn md:play-btn left-36 top-24"
 						initial="initial"
 						animate="play"
 						variants={playButton}
