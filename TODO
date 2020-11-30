@@ -4,13 +4,23 @@ ac:
   // Website todo
     ☐ Make background fade in/out when transitioning games                                                                                                   @matt @critical
     ☐ Add weather music aswell by using APIs                                                                                                                 @matt @high
-    ☐ Add cog top right to opt-out of weather and allow manual weather selection                                                                             @matt @high
-    ☐ Make volume buttons more responsive (grow/shrink on click)                                                                                             @matt @high
+    ☐ Add cog top right to opt-out of weather and allow manual weather selection and time selection                                                          @matt @high
+    ✔ Make volume buttons more responsive (grow/shrink on click)                                                                                             @matt @high
     ☐ Add 30min ver instead                                                                                                                                  @matt @high
+    ☐ Add parallax effect like on dbio homepage for album art                                                                                                @matt @high
+    ☐ Add spacebar functionality (toggle play/pause)                                                                                                         @matt @low
     ☐ Add volume bar                                                                                                                                         @matt @low
     ☐ Add mute button                                                                                                                                        @matt @low
+    // Bugs
+      ☐ Bug                                                                                                                                                  @matt @critical
   ☐ API
   // Add API
     ☐ Create API repo                                                                                                                                        @matt @critical
     ☐ Allow API to return the time and Animal Crossing song                                                                                                  @matt @critical
     ☐ Return JSON like shown { time: '08 PM', firefoxTime: '8 PM', music: [ { game: 'New Horizons', file: '08 PM.mp3', firefoxFile: '8 PM.mp3' }, { ... } ] }@matt @high
+    // Bugs
+      ☐ Bug                                                                                                                                                  @matt @critical
+  ☐ Post-Launch
+    // After the beta is over
+    ☐ Put on Product Hunt                                                                                                                                    @matt @high
+    ☐ Put on twitter                                                                                                                                         @matt @high
