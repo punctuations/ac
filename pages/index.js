@@ -29,8 +29,8 @@ export default function Home(props) {
 		const centerPoint = { x: x + width / 2, y: y + height / 2 };
 
 		window.addEventListener("mousemove", (e) => {
-			const degreeX = (e.clientY - centerPoint.y) * -0.008;
-			const degreeY = (e.clientX - centerPoint.x) * 0.008;
+			const degreeX = (e.clientY - centerPoint.y) * -0.002;
+			const degreeY = (e.clientX - centerPoint.x) * 0.002;
 
 			albumElm.style.transform = `perspective(1000px) rotateX(${degreeX}deg) rotateY(${degreeY}deg)`;
 		});
