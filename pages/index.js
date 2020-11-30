@@ -235,7 +235,7 @@ export default function Home(props) {
 							initial={{ opacity: 0, y: 50 }}
 							animate={{ opacity: 1, y: 0 }}
 							exit={{ opacity: 0, y: 50 }}
-							className="menu-bg mr-4 mt-16 p-12 absolute top-0 right-0 rounded-lg"
+							className="menu-bg text-md font-bold text-white shadow-md mr-4 mt-16 p-12 absolute top-0 right-0 rounded-lg"
 						>
 							<div>
 								Custom Time:<br></br>
@@ -321,7 +321,7 @@ export default function Home(props) {
 						variants={first}
 					/>
 					<motion.div
-						className="play-bg absolute rounded-lg p-2 cursor-pointer 2xl:ft-64 xl:left-64 lg:left-64 md:left-64 left-36 2xl:top-31 xl:top-31 lg:top-31 md:top-31 top-24"
+						className="z-10 play-bg absolute rounded-lg p-2 cursor-pointer 2xl:ft-64 xl:left-64 lg:left-64 md:left-64 left-36 2xl:top-31 xl:top-31 lg:top-31 md:top-31 top-24"
 						initial="initial"
 						animate="play"
 						variants={playButton}
@@ -384,7 +384,7 @@ export default function Home(props) {
 						</svg>
 
 						<motion.div
-							className="ml-2 mt-1.5 px-1 flex flex-wrap content-center menu-bg w-32 h-3 rounded-lg"
+							className="shadow-sm ml-2 mt-1.5 px-1 flex flex-wrap content-center menu-bg w-32 h-3 rounded-lg"
 							whileHover={{ scale: 1.1, height: 14 }}
 						>
 							<motion.div
