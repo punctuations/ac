@@ -82,15 +82,6 @@ img:hover {
 	left: 16rem;
 }
 
-.slider::-webkit-slider-thumb {
-	color: #fff;
-}
-
-.slider::-moz-range-thumb {
-	color: #fff;
-}
-
-.slider::-webkit-slider-runnable-track {
-	color: #444;
-	-webkit-appearance: none;
+.z-999 {
+	z-index: 999;
 }
