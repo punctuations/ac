@@ -133,6 +133,8 @@ export default function Home(props) {
 
 	const [volumeBar, setVolumeHover] = useState(false);
 
+	const [optionsMenu, setOptions] = useState(false);
+
 	setInterval(() => {
 		setTime(new Date().toLocaleTimeString());
 		setHour(new Date().toLocaleTimeString([], { hour: "2-digit" }));
@@ -217,6 +219,7 @@ export default function Home(props) {
 						viewBox="0 0 24 24"
 						stroke="currentColor"
 						className="w-7 h-7 opacity-50 hover:opacity-75 cursor-pointer"
+						onClick={() => setOptions(!optionsMenu)}
 					>
 						<path
 							strokeLinecap="round"
@@ -226,6 +229,21 @@ export default function Home(props) {
 						/>
 					</svg>
 				</motion.div>
+				<AnimatePresence initial={false}>
+					{optionsMenu && (
+						<motion.div
+							initial={{ opacity: 0, y: 50 }}
+							animate={{ opacity: 1, y: 0 }}
+							exit={{ opacity: 0, y: 50 }}
+							className="menu-bg mr-4 mt-16 p-12 absolute top-0 right-0 rounded-lg"
+						>
+							<div>
+								Custom Time:<br></br>
+								<input type="time"></input>
+							</div>
+						</motion.div>
+					)}
+				</AnimatePresence>
 				<AnimatePresence initial={false}>
 					{gameMenu && (
 						<motion.div
