@@ -314,7 +314,7 @@ export default function Home(props) {
 				<div className="relative">
 					<motion.img
 						src={menuSelection()}
-						className="mt-5 max-w-xl w-full rounded-xl shadow-lg cursor-pointer"
+						className="z-0 mt-5 max-w-xl w-full rounded-xl shadow-lg cursor-pointer"
 						id="album"
 						initial="initial"
 						animate="enter"
