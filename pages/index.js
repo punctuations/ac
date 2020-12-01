@@ -495,12 +495,7 @@ export default function Home(props) {
 					>
 						<AudioPlayerProvider>
 							<AudioPlayer
-								file={`/music/${gameName()}/${new Date().toLocaleTimeString(
-									["en-US"],
-									{
-										hour: "2-digit",
-									}
-								)}.mp3`} //change out for music() once songs are added
+								file={music()}
 								pauseButton="/pause.svg"
 								playButton="/play.svg"
 							/>
