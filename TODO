@@ -10,7 +10,7 @@ ac:
     ✔ Add parallax effect like on dbio homepage for album art                                                                                                @matt @high
     ☐ Add spacebar functionality (toggle play/pause)                                                                                                         @matt @low
     ☐ Add volume bar                                                                                                                                         @matt @low
-    ☐ Add mute button                                                                                                                                        @matt @low
+    ✔ Add mute button                                                                                                                                        @matt @low
     // Bugs
       ☐ Album art clips over top of the play/pause buttton when tilting                                                                                      @matt @critical
   ☐ API

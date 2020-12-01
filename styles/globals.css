@@ -34,6 +34,10 @@ img:hover {
 	filter: blur(1px);
 }
 
+.indicator:hover {
+	filter: none;
+}
+
 .album-horizons,
 .album-leaf,
 .album-city,
