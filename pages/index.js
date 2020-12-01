@@ -19,7 +19,10 @@ export async function getStaticProps() {
 	const fetcher = (url) => fetch(url).then((res) => res.json());
 
 	const req = await fetcher("https://api.ipify.org/?format=json");
-	return { props: { req } };
+	const res = await fetcher(
+		`http://api.weatherapi.com/v1/current.json?key=c827c9095017472998c34458201611&q=${req.ip}`
+	);
+	return { props: { req, res } };
 }
 
 export default function Home(props) {
@@ -35,6 +38,42 @@ export default function Home(props) {
 			albumElm.style.transform = `perspective(1000px) rotateX(${degreeX}deg) rotateY(${degreeY}deg)`;
 		});
 	}, []);
+
+	function music() {
+		switch (weatherOpt) {
+			case true:
+				const str = `${props.res.current.condition.text}`;
+				if (str.match(/rain/i)) {
+					return `/music/${gameName()}/rain/${new Date().toLocaleTimeString(
+						["en-US"],
+						{
+							hour: "2-digit",
+						}
+					)}.mp3`;
+				} else if (str.match(/snow/i)) {
+					return `/music/${gameName()}/snow/${new Date().toLocaleTimeString(
+						["en-US"],
+						{
+							hour: "2-digit",
+						}
+					)}.mp3`;
+				} else {
+					return `/music/${gameName()}/${new Date().toLocaleTimeString(
+						["en-US"],
+						{
+							hour: "2-digit",
+						}
+					)}.mp3`;
+				}
+			case false:
+				return `/music/${gameName()}/${new Date().toLocaleTimeString(
+					["en-US"],
+					{
+						hour: "2-digit",
+					}
+				)}.mp3`;
+		}
+	}
 
 	function dragToVolume() {}
 
@@ -146,6 +185,8 @@ export default function Home(props) {
 	const [hour, setHour] = useState(
 		new Date().toLocaleTimeString(["en-US"], { hour: "2-digit" })
 	);
+
+	const [weatherOpt, setWeatherPref] = useState(true);
 
 	const [gameMenu, setMenu] = useState(false);
 	const [album, setAlbum] = useState(0);
@@ -357,7 +398,7 @@ export default function Home(props) {
 									{
 										hour: "2-digit",
 									}
-								)}.mp3`}
+								)}.mp3`} //change out for music() once songs are added
 								pauseButton="/pause.svg"
 								playButton="/play.svg"
 							/>
