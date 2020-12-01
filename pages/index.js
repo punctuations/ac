@@ -2,7 +2,6 @@ import Head from "next/head";
 import { useState, useEffect } from "react";
 import { AudioPlayerProvider } from "react-use-audio-player";
 import AudioPlayer from "../components/AudioPlayer";
-import useSWR from "swr";
 import { motion, AnimatePresence, useMotionValue } from "framer-motion";
 import {
 	first,
@@ -198,16 +197,12 @@ export default function Home(props) {
 	const [volumeBar, setVolumeHover] = useState(false);
 
 	const [optionsMenu, setOptions] = useState(false);
+	const [tooltip, setTooltip] = useState(false);
 
 	setInterval(() => {
 		setTime(new Date().toLocaleTimeString());
 		setHour(new Date().toLocaleTimeString([], { hour: "2-digit" }));
 	}, 1000);
-
-	const fetcher = (url) => fetch(url).then((res) => res.json());
-	const { data } = useSWR("https://api.ipify.org/?format=json", fetcher, {
-		initialData: props.req,
-	});
 
 	return (
 		<>
@@ -282,30 +277,137 @@ export default function Home(props) {
 						fill="none"
 						viewBox="0 0 24 24"
 						stroke="currentColor"
-						className="w-7 h-7 opacity-50 hover:opacity-75 cursor-pointer"
+						className="w-5 h-5 opacity-50 hover:opacity-75 cursor-pointer"
 						onClick={() => setOptions(!optionsMenu)}
 					>
 						<path
 							strokeLinecap="round"
 							strokeLinejoin="round"
 							strokeWidth={2}
-							d="M12 6V4m0 2a2 2 0 100 4m0-4a2 2 0 110 4m-6 8a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4m6 6v10m6-2a2 2 0 100-4m0 4a2 2 0 110-4m0 4v2m0-6V4"
+							d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"
+						/>
+						<path
+							strokeLinecap="round"
+							strokeLinejoin="round"
+							strokeWidth={2}
+							d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"
 						/>
 					</svg>
 				</motion.div>
 				<AnimatePresence initial={false}>
 					{optionsMenu && (
-						<motion.div
-							initial={{ opacity: 0, y: 50 }}
-							animate={{ opacity: 1, y: 0 }}
-							exit={{ opacity: 0, y: 50 }}
-							className="menu-bg text-md font-bold text-white shadow-md mr-4 mt-16 p-12 absolute top-0 right-0 rounded-lg"
-						>
-							<div>
-								Custom Time:<br></br>
-								<input type="time"></input>
-							</div>
-						</motion.div>
+						<>
+							<AnimatePresence initial={false}>
+								{tooltip && (
+									<motion.div
+										className="menu-bg text-sm text-white shadow-md mr-88 mt-14 p-12 absolute top-0 right-0 rounded-lg"
+										initial={{ opacity: 0, x: -40 }}
+										animate={{ opacity: 1, x: 0 }}
+										exit={{ opacity: 0, x: -40 }}
+									>
+										<svg
+											xmlns="http://www.w3.org/2000/svg"
+											fill="none"
+											viewBox="0 0 24 24"
+											stroke="currentColor"
+											className="h-4 w-4 float-left mr-1"
+										>
+											<path
+												strokeLinecap="round"
+												strokeLinejoin="round"
+												strokeWidth={2}
+												d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
+											/>
+										</svg>
+										I believe in privacy, that is why there is{" "}
+										<span className="font-bold">no</span> tracking,
+										<br /> your location is soley used to get the weather.
+										<br />
+										Your location is not touched other than this reason.
+										<br />
+										If you want more information on how
+										<br />
+										your location is used you can look at the
+										<br /> GitHub repo, you can find it in the bottom right .{" "}
+									</motion.div>
+								)}
+							</AnimatePresence>
+							<motion.div
+								initial={{ opacity: 0, y: 50 }}
+								animate={{ opacity: 1, y: 0 }}
+								exit={{ opacity: 0, y: 50 }}
+								className="menu-bg text-md font-bold text-white shadow-md mr-4 mt-14 p-12 absolute top-0 right-0 rounded-lg"
+							>
+								<div>
+									<motion.svg
+										xmlns="http://www.w3.org/2000/svg"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke="currentColor"
+										className="h-4 w-4 inline mr-1 select-none"
+										whileHover={() => setTooltip(true)}
+										onHoverEnd={() => setTooltip(false)}
+									>
+										<path
+											strokeLinecap="round"
+											strokeLinejoin="round"
+											strokeWidth={2}
+											d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+										/>
+									</motion.svg>
+									Opt-{weatherOpt ? "Out" : "In"} of weather:
+									{weatherOpt ? (
+										<>
+											<br />
+											<p className="font-semibold inline">
+												You are currently Opted-In
+											</p>
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												fill="none"
+												viewBox="0 0 24 24"
+												stroke="currentColor"
+												className="h-6 w-6 ml-1 inline cursor-pointer select-none"
+												onClick={() => setWeatherPref(false)}
+											>
+												<path
+													strokeLinecap="round"
+													strokeLinejoin="round"
+													strokeWidth={2}
+													d="M5.636 18.364a9 9 0 010-12.728m12.728 0a9 9 0 010 12.728m-9.9-2.829a5 5 0 010-7.07m7.072 0a5 5 0 010 7.07M13 12a1 1 0 11-2 0 1 1 0 012 0z"
+												/>
+											</svg>
+										</>
+									) : (
+										<>
+											<br />
+											<p className="font-semibold inline">
+												You are currently Opted-Out
+											</p>
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												fill="none"
+												viewBox="0 0 24 24"
+												stroke="currentColor"
+												className="h-6 w-6 ml-1 inline cursor-pointer select-none"
+												onClick={() => setWeatherPref(true)}
+											>
+												<path
+													strokeLinecap="round"
+													strokeLinejoin="round"
+													strokeWidth={2}
+													d="M18.364 5.636a9 9 0 010 12.728m0 0l-2.829-2.829m2.829 2.829L21 21M15.536 8.464a5 5 0 010 7.072m0 0l-2.829-2.829m-4.243 2.829a4.978 4.978 0 01-1.414-2.83m-1.414 5.658a9 9 0 01-2.167-9.238m7.824 2.167a1 1 0 111.414 1.414m-1.414-1.414L3 3m8.293 8.293l1.414 1.414"
+												/>
+											</svg>
+										</>
+									)}
+								</div>
+								<div>
+									Custom Time:<br></br>
+									<input type="time"></input>
+								</div>
+							</motion.div>
+						</>
 					)}
 				</AnimatePresence>
 				<AnimatePresence initial={false}>
