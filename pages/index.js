@@ -26,16 +26,22 @@ export async function getStaticProps() {
 
 export default function Home(props) {
 	useEffect(() => {
-		const albumElm = document.getElementById("album");
-		const { x, y, width, height } = albumElm.getBoundingClientRect();
-		const centerPoint = { x: x + width / 2, y: y + height / 2 };
+		switch (window.innerWidth < "768px") {
+			case true:
+				break;
+			case false:
+				const albumElm = document.getElementById("album");
+				const { x, y, width, height } = albumElm.getBoundingClientRect();
+				const centerPoint = { x: x + width / 2, y: y + height / 2 };
 
-		window.addEventListener("mousemove", (e) => {
-			const degreeX = (e.clientY - centerPoint.y) * -0.002;
-			const degreeY = (e.clientX - centerPoint.x) * 0.002;
+				window.addEventListener("mousemove", (e) => {
+					const degreeX = (e.clientY - centerPoint.y) * -0.002;
+					const degreeY = (e.clientX - centerPoint.x) * 0.002;
 
-			albumElm.style.transform = `perspective(1000px) rotateX(${degreeX}deg) rotateY(${degreeY}deg)`;
-		});
+					albumElm.style.transform = `perspective(1000px) rotateX(${degreeX}deg) rotateY(${degreeY}deg)`;
+				});
+				break;
+		}
 	}, []);
 
 	function music() {
