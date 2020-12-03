@@ -373,7 +373,7 @@ export default function Home(props) {
 												fill="none"
 												viewBox="0 0 24 24"
 												stroke="currentColor"
-												className="h-6 w-6 ml-1 inline cursor-pointer select-none"
+												className="h-6 w-6 ml-1 inline cursor-pointer select-none text-green-200"
 												onClick={() => setWeatherPref(false)}
 											>
 												<path
@@ -395,7 +395,7 @@ export default function Home(props) {
 												fill="none"
 												viewBox="0 0 24 24"
 												stroke="currentColor"
-												className="h-6 w-6 ml-1 inline cursor-pointer select-none"
+												className="h-6 w-6 ml-1 inline cursor-pointer select-none text-rose-300"
 												onClick={() => setWeatherPref(true)}
 											>
 												<path
@@ -410,7 +410,7 @@ export default function Home(props) {
 								</div>
 								<div>
 									Custom Time:<br></br>
-									<input type="time"></input>
+									<input type="time" className="opacity-50" disabled></input>
 								</div>
 							</motion.div>
 						</>
