@@ -26,7 +26,7 @@ export async function getStaticProps() {
 
 export default function Home(props) {
 	useEffect(() => {
-		switch (window.innerWidth < "768px") {
+		switch (window.screen.width < 768) {
 			case true:
 				break;
 			case false:
