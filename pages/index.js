@@ -12,7 +12,6 @@ import {
 	menu,
 	playButton,
 } from "../components/animations";
-import styles from "../styles/Home.module.css";
 
 export async function getStaticProps() {
 	const fetcher = (url) => fetch(url).then((res) => res.json());
