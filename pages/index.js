@@ -305,7 +305,7 @@ export default function Home(props) {
 							<AnimatePresence initial={false}>
 								{tooltip && (
 									<motion.div
-										className="menu-bg text-sm text-white shadow-md mr-88 mt-14 p-12 absolute top-0 right-0 rounded-lg"
+										className="menu-bg text-sm text-white shadow-md mr-90 mt-14 p-12 absolute top-0 right-0 rounded-lg"
 										initial={{ opacity: 0, x: -40 }}
 										animate={{ opacity: 1, x: 0 }}
 										exit={{ opacity: 0, x: -40 }}
@@ -360,7 +360,7 @@ export default function Home(props) {
 											d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
 										/>
 									</motion.svg>
-									Opt-{weatherOpt ? "Out" : "In"} of weather:
+									Opt-{weatherOpt ? "Out of" : "In to"} weather:
 									{weatherOpt ? (
 										<>
 											<br />
