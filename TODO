@@ -19,8 +19,9 @@ ac:
     ☐ Create API repo                                                                                                                                        @matt @critical
     ☐ Allow API to return the time and Animal Crossing song                                                                                                  @matt @critical
     ☐ Return JSON like shown { time: '08 PM', firefoxTime: '8 PM', music: [ { game: 'New Horizons', file: '08 PM.mp3', firefoxFile: '8 PM.mp3' }, { ... } ] }@matt @high
+    ☐ add ability to add query on end of domain for custom time or weather i.e. https://api.example.com?6AM,Rainy                                            @matt @high
     // Bugs
-      ☐ Bug                                                                                                                                                  @matt @critical
+      ☐ Window not initializing, find a way to render page w/o ssr                                                                                           @matt @critical
   ☐ Post-Launch
     // After the beta is over
     ☐ Put on Product Hunt                                                                                                                                    @matt @high
