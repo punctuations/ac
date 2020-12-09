@@ -10,6 +10,7 @@ ac:
     ✘ Add 30min ver instead                                                                                                                                  @matt @high
     ✔ Add parallax effect like on dbio homepage for album art                                                                                                @matt @high
     ☐ Add spacebar functionality (toggle play/pause)                                                                                                         @matt @low
+    ☐ Add skeleton loader or image optimization                                                                                                              @matt @low
     ☐ Add volume bar                                                                                                                                         @matt @low
     ✔ Add mute button                                                                                                                                        @matt @low
     // Bugs
