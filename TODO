@@ -10,15 +10,16 @@ ac:
     ✘ Add 30min ver instead                                                                                                                                  @matt @high
     ✔ Add parallax effect like on dbio homepage for album art                                                                                                @matt @high
     ☐ Add spacebar functionality (toggle play/pause)                                                                                                         @matt @low
+    ☐ Add skeleton loader or image optimization                                                                                                              @matt @low
     ☐ Add volume bar                                                                                                                                         @matt @low
     ✔ Add mute button                                                                                                                                        @matt @low
     // Bugs
       ✔ Album art clips over top of the play/pause buttton when tilting                                                                                      @matt @critical
   ☐ API
   // Add API
-    ☐ Create API repo                                                                                                                                        @matt @critical
-    ☐ Allow API to return the time and Animal Crossing song                                                                                                  @matt @critical
-    ☐ Return JSON like shown { time: '08 PM', firefoxTime: '8 PM', music: [ { game: 'New Horizons', file: '08 PM.mp3', firefoxFile: '8 PM.mp3' }, { ... } ] }@matt @high
+    ✔ Create API repo                                                                                                                                        @matt @critical
+    ✔ Allow API to return the time and Animal Crossing song                                                                                                  @matt @critical
+    ✔ Return JSON like shown { time: '08 PM', firefoxTime: '8 PM', music: [ { game: 'New Horizons', file: '08 PM.mp3', firefoxFile: '8 PM.mp3' }, { ... } ] }@matt @high
     ☐ add ability to add query on end of domain for custom time or weather i.e. https://api.example.com?6AM,Rainy                                            @matt @high
     // Bugs
       ☐ Window not initializing, find a way to render page w/o ssr                                                                                           @matt @critical
