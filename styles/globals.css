@@ -86,6 +86,6 @@ img:hover {
 	left: 16rem;
 }
 
-.z-999 {
-	z-index: 999;
+.tranform-origin {
+	transform-origin: center center 1px;
 }

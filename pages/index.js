@@ -25,22 +25,16 @@ export async function getStaticProps() {
 
 export default function Home(props) {
 	useEffect(() => {
-		switch (window.screen.width < 768) {
-			case true:
-				break;
-			case false:
-				const albumElm = document.getElementById("album");
-				const { x, y, width, height } = albumElm.getBoundingClientRect();
-				const centerPoint = { x: x + width / 2, y: y + height / 2 };
+		const albumElm = document.getElementById("album");
+		const { x, y, width, height } = albumElm.getBoundingClientRect();
+		const centerPoint = { x: x + width / 2, y: y + height / 2 };
 
-				window.addEventListener("mousemove", (e) => {
-					const degreeX = (e.clientY - centerPoint.y) * -0.002;
-					const degreeY = (e.clientX - centerPoint.x) * 0.002;
+		window.addEventListener("mousemove", (e) => {
+			const degreeX = (e.clientY - centerPoint.y) * -0.002;
+			const degreeY = (e.clientX - centerPoint.x) * 0.002;
 
-					albumElm.style.transform = `perspective(1000px) rotateX(${degreeX}deg) rotateY(${degreeY}deg)`;
-				});
-				break;
-		}
+			albumElm.style.transform = `perspective(1000px) rotateX(${degreeX}deg) rotateY(${degreeY}deg)`;
+		});
 	}, []);
 
 	function music() {
@@ -239,7 +233,7 @@ export default function Home(props) {
 					rel="stylesheet"
 				></link>
 			</Head>
-			<AnimatePresence initial={false}>{backgroundArt()}</AnimatePresence>
+			<div>{backgroundArt()}</div>
 			<div className="flex 2xl:flex-row xl:flex-row lg:flex-row md:flex-row flex-col items-center justify-center z-10 absolute w-full h-full">
 				<motion.div
 					initial="initial"
@@ -426,22 +420,22 @@ export default function Home(props) {
 						>
 							<img
 								src="/albums/newhorizons.jpeg"
-								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer 2xl:mt-0 xl:mt-0 lg:mt-0 md:mt-0 mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-8"
+								className="transform-origin 2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer 2xl:mt-0 xl:mt-0 lg:mt-0 md:mt-0 mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-8"
 								onClick={() => setAlbum(0)}
 							></img>
 							<img
 								src="/albums/newleaf.jpeg"
-								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-4"
+								className="transform-origin 2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-4"
 								onClick={() => setAlbum(1)}
 							></img>
 							<img
 								src="/albums/cityfolk.jpeg"
-								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-8"
+								className="transform-origin 2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-8"
 								onClick={() => setAlbum(2)}
 							></img>
 							<img
 								src="/albums/GCN.jpeg"
-								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-4"
+								className="transform-origin 2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-4"
 								onClick={() => setAlbum(3)}
 							></img>
 						</motion.div>
@@ -492,7 +486,7 @@ export default function Home(props) {
 						variants={first}
 					/>
 					<motion.div
-						className="z-999 play-bg absolute rounded-lg p-2 cursor-pointer 2xl:ft-64 xl:left-64 lg:left-64 md:left-64 left-36 2xl:top-31 xl:top-31 lg:top-31 md:top-31 top-24"
+						className="play-bg absolute rounded-lg p-2 cursor-pointer 2xl:ft-64 xl:left-64 lg:left-64 md:left-64 left-36 2xl:top-31 xl:top-31 lg:top-31 md:top-31 top-24"
 						initial="initial"
 						animate="play"
 						variants={playButton}
