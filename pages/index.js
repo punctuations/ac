@@ -16,7 +16,7 @@ import {
 export async function getStaticProps() {
 	const fetcher = (url) => fetch(url).then((res) => res.json());
 
-	const req = await fetcher("https://api.ipify.org/?format=json");
+	const req = await fetcher("https://api.ipify.org/?format=json"); // doesnt return right IP
 	const res = await fetcher(
 		`http://api.weatherapi.com/v1/current.json?key=c827c9095017472998c34458201611&q=${req.ip}`
 	);
@@ -269,14 +269,14 @@ export default function Home(props) {
 					initial="initial"
 					animate="enter"
 					variants={fourth}
-					className="text-white absolute top-0 right-0 m-6"
+					className="z-40 text-white absolute top-0 right-0 m-6"
 				>
 					<svg
 						xmlns="http://www.w3.org/2000/svg"
 						fill="none"
 						viewBox="0 0 24 24"
-						stroke="currentColor"
-						className="w-5 h-5 opacity-50 hover:opacity-75 cursor-pointer"
+						stroke="#999797"
+						className="w-5 h-5 2xl:opacity-50 xl:opacity-50 lg:opacity-50 md:opacity-50 sm:opacity-50 opacity-100 hover:opacity-75 cursor-pointer"
 						onClick={() => setOptions(!optionsMenu)}
 					>
 						<path
@@ -335,7 +335,7 @@ export default function Home(props) {
 								initial={{ opacity: 0, y: 50 }}
 								animate={{ opacity: 1, y: 0 }}
 								exit={{ opacity: 0, y: 50 }}
-								className="menu-bg text-md font-bold text-white shadow-md mr-4 mt-14 p-12 absolute top-0 right-0 rounded-lg"
+								className="z-30 menu-bg text-md font-bold text-white shadow-md 2xl:mr-4 xl:mr-4 lg:mr-4 md:mr-4 sm:mr-4 mr-0 2xl:mt-14 xl:mt-14 lg:mt-14 md:mt-14 sm:mt-14 mt-0 p-12 absolute top-0 right-0 rounded-lg 2xl:w-auto xl:w-auto lg:w-auto md:w-auto sm:w-auto w-full 2xl:h-auto xl:h-auto lg:h-auto md:h-auto sm:h-auto h-full"
 							>
 								<div>
 									<motion.svg
@@ -425,22 +425,22 @@ export default function Home(props) {
 						>
 							<img
 								src="/albums/newhorizons.jpeg"
-								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer 2xl:mt-0 xl:mt-0 lg:mt-0 md:mt-0 mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-8"
+								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-20 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-10 rounded-md cursor-pointer 2xl:mt-0 xl:mt-0 lg:mt-0 md:mt-0 mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml4"
 								onClick={() => setAlbum(0)}
 							></img>
 							<img
 								src="/albums/newleaf.jpeg"
-								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-4"
+								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-20 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-10 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-2"
 								onClick={() => setAlbum(1)}
 							></img>
 							<img
 								src="/albums/cityfolk.jpeg"
-								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-8"
+								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-20 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-10 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-2"
 								onClick={() => setAlbum(2)}
 							></img>
 							<img
 								src="/albums/GCN.jpeg"
-								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-4"
+								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-20 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-10 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-2"
 								onClick={() => setAlbum(3)}
 							></img>
 						</motion.div>
