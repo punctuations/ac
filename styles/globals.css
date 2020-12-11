@@ -70,6 +70,7 @@ img:hover {
 	background-color: rgb(223, 211, 209, 0.3);
 	border: 1px solid rgba(255, 255, 255, 0.2);
 	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
 }
 
 .play-bg {
@@ -95,6 +96,7 @@ img:hover {
 	background-color: rgb(223, 211, 209, 0.3);
 	border: 1px solid rgba(255, 255, 255, 0.2);
 	backdrop-filter: blur(10px);
+	-webkit-backdrop-filter: blur(10px);
 }
 
 .text-shadow {

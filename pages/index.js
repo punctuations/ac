@@ -403,7 +403,12 @@ export default function Home(props) {
 								</div>
 								<div>
 									Custom Time:<br></br>
-									<input type="time" className="opacity-50" disabled></input>
+									<input
+										type="time"
+										placeholder="--:-- --"
+										className="opacity-50"
+										disabled
+									></input>
 								</div>
 							</motion.div>
 						</>

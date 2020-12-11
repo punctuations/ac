@@ -41,7 +41,7 @@ export default function Error() {
 						variants={second}
 						viewBox="0 0 200 200"
 						xmlns="http://www.w3.org/2000/svg"
-						className="h-64 w-64 mb-64 mr-72 drop-shadow absolute flex items-center justify-center"
+						className="2xl:h-64 xl:h-64 lg:h-64 md:h-48 sm:h-48 h-28 2xl:w-64 xl:w-64 lg:w-64 md:w-48 sm:w-48 w-28 2xl:mb-64 xl:mb-64 lg:mb-64 md:mb-40 sm:mb-32 mb-8 2xl:mr-72 xl:mr-72 lg:mr-72 md:mr-36 sm:-mr-40 mr-16 drop-shadow absolute flex items-center justify-center xl:z-0 lg:z-0 md:z-0 sm:z-10 z-0"
 					>
 						<path
 							fill="#AF6FCB"
@@ -57,7 +57,7 @@ export default function Error() {
 						variants={third}
 						viewBox="0 0 200 200"
 						xmlns="http://www.w3.org/2000/svg"
-						className="h-64 w-64 mt-64 ml-14 drop-shadow"
+						className="2xl:h-64 xl:h-64 lg:h-64 md:h-32 sm:h-32 h-24 2xl:w-64 xl:w-64 lg:w-64 md:w-32 sm:w-32 w-24 2xl:mt-64 xl:mt-64 lg:mt-64 md:mt-48 sm:mt-32 mt-32 2xl:ml-14 xl:ml-14 lg:ml-14 md:ml-14 sm:-ml-24 ml-16 drop-shadow 2xl:z-0 xl:z-0 lg:z-0 md:z-10 sm:z-0 z-0"
 					>
 						<path
 							fill="#FF0066"
@@ -73,7 +73,7 @@ export default function Error() {
 						variants={fourth}
 						viewBox="0 0 200 200"
 						xmlns="http://www.w3.org/2000/svg"
-						className="h-64 w-64 ml-80 drop-shadow"
+						className="2xl:h-64 xl:h-64 lg:h-64 md:h-32 sm:h-32 h-20 2xl:w-64 xl:w-64 lg:w-64 md:w-32 sm:w-32 w-20 2xl:ml-80 xl:ml-80 lg:ml-80 md:ml-104 sm:ml-104 ml-24 2xl:mt-0 lg:mt-0 md:mt-16 sm:mt-12 -mt-16 drop-shadow"
 					>
 						<path
 							fill="#FA4D56"
@@ -95,7 +95,7 @@ export default function Error() {
 						initial="initial"
 						animate="enter"
 						variants={second}
-						className="glass 2xl:ml-80 xl:ml-80 lg:ml-80 md:ml-72 sm:ml-64 ml-48 2xl:mt-64 xl:mt-64 lg:mt-64 md:mt-48 sm:mt-0 mt-20 absolute rounded-xl 2xl:p-12 xl:p-12 lg:p-12 md:p-6 sm:p-6 p-3 text-white font-semibold shadow-2xl 2xl:text-3xl xl:text-3xl lg:text-3xl md:text-xl sm:text-lg text-md"
+						className="glass 2xl:z-0 xl:z-0 lg:z-0 md:z-20 sm:z-20 z-0 2xl:ml-80 xl:ml-80 lg:ml-80 md:ml-64 sm:ml-64 ml-28 2xl:mt-64 xl:mt-64 lg:mt-64 md:mt-40 sm:mt-0 mt-20 absolute rounded-xl 2xl:p-12 xl:p-12 lg:p-12 md:p-6 sm:p-6 p-3 text-white font-semibold shadow-2xl 2xl:text-3xl xl:text-3xl lg:text-3xl md:text-xl sm:text-lg text-md"
 					>
 						<span className="text-shadow select-none">page not found</span>
 					</motion.div>
