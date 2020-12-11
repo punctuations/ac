@@ -41,7 +41,7 @@ export default function Error() {
 						variants={second}
 						viewBox="0 0 200 200"
 						xmlns="http://www.w3.org/2000/svg"
-						className="2xl:h-64 xl:h-64 lg:h-64 md:h-48 sm:h-48 h-28 2xl:w-64 xl:w-64 lg:w-64 md:w-48 sm:w-48 w-28 2xl:mb-64 xl:mb-64 lg:mb-64 md:mb-40 sm:mb-32 mb-8 2xl:mr-72 xl:mr-72 lg:mr-72 md:mr-36 sm:-mr-40 mr-48 drop-shadow absolute flex items-center justify-center xl:z-0 lg:z-0 md:z-0 sm:z-10 z-0"
+						className="2xl:h-64 xl:h-64 lg:h-64 md:h-48 sm:h-48 h-28 2xl:w-64 xl:w-64 lg:w-64 md:w-48 sm:w-48 w-28 2xl:mb-64 xl:mb-64 lg:mb-64 md:mb-40 sm:mb-32 mb-8 2xl:mr-72 xl:mr-72 lg:mr-72 md:mr-36 sm:-mr-40 mr-32 drop-shadow absolute flex items-center justify-center xl:z-0 lg:z-0 md:z-0 sm:z-10 z-0"
 					>
 						<path
 							fill="#AF6FCB"
