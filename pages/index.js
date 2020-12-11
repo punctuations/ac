@@ -477,29 +477,31 @@ export default function Home(props) {
 					</svg>
 				</motion.div>
 				<div className="relative">
-					<motion.img
-						src={menuSelection()}
-						className="z-0 mt-5 max-w-xl w-full rounded-xl shadow-lg cursor-pointer"
-						id="album"
-						initial="initial"
-						animate="enter"
-						variants={first}
-					/>
-					<motion.div
-						className="play-bg absolute rounded-lg p-2 cursor-pointer 2xl:ft-64 xl:left-64 lg:left-64 md:left-64 left-36 2xl:top-31 xl:top-31 lg:top-31 md:top-31 top-24"
-						initial="initial"
-						animate="play"
-						variants={playButton}
-						onClick={() => setPlayback(!playback)}
-					>
-						<AudioPlayerProvider>
-							<AudioPlayer
-								file={music()}
-								pauseButton="/pause.svg"
-								playButton="/play.svg"
-							/>
-						</AudioPlayerProvider>
-					</motion.div>
+					<div className="flex items-center justify-center">
+						<motion.img
+							src={menuSelection()}
+							className="z-0 mt-5 max-w-xl w-full rounded-xl shadow-lg cursor-pointer"
+							id="album"
+							initial="initial"
+							animate="enter"
+							variants={first}
+						/>
+						<motion.div
+							className="absolute z-20 play-bg rounded-lg p-2 cursor-pointer"
+							initial="initial"
+							animate="play"
+							variants={playButton}
+							onClick={() => setPlayback(!playback)}
+						>
+							<AudioPlayerProvider>
+								<AudioPlayer
+									file={music()}
+									pauseButton="/pause.svg"
+									playButton="/play.svg"
+								/>
+							</AudioPlayerProvider>
+						</motion.div>
+					</div>
 				</div>
 				<div className="flex-col">
 					<motion.div
