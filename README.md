@@ -4,7 +4,7 @@ Animal Crossing Time is a simple site inspired by [crossingti.me](https://crossi
 
 #### 📝 Have suggestions?
 
-Feel free to contact me with suggestions you have to better this project and make it stand out! You can contact me with the methods stated above.
+Feel free to leave suggestions in the [discussions](https://github.com/punctuations/ac/discussions) or contact me with suggestions you have to better this project and make it stand out! You can contact me with the methods stated above.
 
 #### 🚀 I cloned the repo how do I run a development server?
 
