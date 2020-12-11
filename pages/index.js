@@ -420,22 +420,22 @@ export default function Home(props) {
 						>
 							<img
 								src="/albums/newhorizons.jpeg"
-								className="transform-origin 2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer 2xl:mt-0 xl:mt-0 lg:mt-0 md:mt-0 mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-8"
+								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer 2xl:mt-0 xl:mt-0 lg:mt-0 md:mt-0 mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-8"
 								onClick={() => setAlbum(0)}
 							></img>
 							<img
 								src="/albums/newleaf.jpeg"
-								className="transform-origin 2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-4"
+								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-4"
 								onClick={() => setAlbum(1)}
 							></img>
 							<img
 								src="/albums/cityfolk.jpeg"
-								className="transform-origin 2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-8"
+								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-8"
 								onClick={() => setAlbum(2)}
 							></img>
 							<img
 								src="/albums/GCN.jpeg"
-								className="transform-origin 2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-4"
+								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-32 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-16 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-4"
 								onClick={() => setAlbum(3)}
 							></img>
 						</motion.div>
@@ -480,7 +480,7 @@ export default function Home(props) {
 					<div className="flex items-center justify-center">
 						<motion.img
 							src={menuSelection()}
-							className="z-0 mt-5 max-w-xl w-full rounded-xl shadow-lg cursor-pointer"
+							className="transform-origin z-0 mt-5 max-w-xl w-full rounded-xl shadow-lg cursor-pointer"
 							id="album"
 							initial="initial"
 							animate="enter"
