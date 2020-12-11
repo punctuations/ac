@@ -1,6 +1,6 @@
 
 ac:
-  ☐ Website
+  Website:
   // Website todo
     ☐ Make background fade in/out when transitioning games                                                                                                   @matt @critical
     ☐ Use localStorage to remember the user's weather preference (every few seconds update the localStorage)                                                 @matt @critical
@@ -14,10 +14,10 @@ ac:
     ☐ Add volume bar                                                                                                                                         @matt @low
     ✔ Add mute button                                                                                                                                        @matt @low
     // Bugs
-      ☐ Fix bug in firefox where there is no backdrop blur                                                                                                   @matt @high @today
+      ✘ Fix bug in firefox where there is no backdrop blur                                                                                                   @matt @high @today @wontfix
       ☐ Fix the IP address that the webpage is recieving, currently recieving IP of vercel server (I assume)                                                 @matt @critical 
       ✔ Album art clips over top of the play/pause buttton when tilting                                                                                      @matt @critical
-  ☐ API
+  API:
   // Add API
     ✔ Create API repo                                                                                                                                        @matt @critical
     ✔ Allow API to return the time and Animal Crossing song                                                                                                  @matt @critical
