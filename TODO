@@ -14,6 +14,7 @@ ac:
     ☐ Add volume bar                                                                                                                                         @matt @low
     ✔ Add mute button                                                                                                                                        @matt @low
     // Bugs
+      ☐ Fix the IP address that the webpage is recieving, currently recieving IP of vercel server (I assume)                                                 @matt @critical 
       ✔ Album art clips over top of the play/pause buttton when tilting                                                                                      @matt @critical
   ☐ API
   // Add API
