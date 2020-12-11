@@ -337,7 +337,7 @@ export default function Home(props) {
 								exit={{ opacity: 0, y: 50 }}
 								className="z-30 menu-bg text-md font-bold text-white shadow-md 2xl:mr-4 xl:mr-4 lg:mr-4 md:mr-4 sm:mr-4 mr-0 2xl:mt-14 xl:mt-14 lg:mt-14 md:mt-14 sm:mt-14 mt-0 p-12 absolute top-0 right-0 rounded-lg 2xl:w-auto xl:w-auto lg:w-auto md:w-auto sm:w-auto w-full 2xl:h-auto xl:h-auto lg:h-auto md:h-auto sm:h-auto h-full"
 							>
-								<div>
+								<div className="text-shadow">
 									<motion.svg
 										xmlns="http://www.w3.org/2000/svg"
 										fill="none"
