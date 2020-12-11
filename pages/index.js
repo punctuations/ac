@@ -486,11 +486,7 @@ export default function Home(props) {
 						variants={first}
 					/>
 					<motion.div
-<<<<<<< HEAD
 						className="play-bg absolute rounded-lg p-2 cursor-pointer 2xl:ft-64 xl:left-64 lg:left-64 md:left-64 left-36 2xl:top-31 xl:top-31 lg:top-31 md:top-31 top-24"
-=======
-						className="z-999 play-bg absolute rounded-lg p-2 cursor-pointer 2xl:left-64 xl:left-64 lg:left-64 md:left-64 left-36 2xl:top-31 xl:top-31 lg:top-31 md:top-31 top-24"
->>>>>>> dc166f76b27b5abfe954d79ed598dbb3dcc9ec27
 						initial="initial"
 						animate="play"
 						variants={playButton}
