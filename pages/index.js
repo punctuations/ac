@@ -24,6 +24,7 @@ export async function getStaticProps() {
 }
 
 export default function Home(props) {
+	console.log(props.req.ip);
 	useEffect(() => {
 		const albumElm = document.getElementById("album");
 		const { x, y, width, height } = albumElm.getBoundingClientRect();
