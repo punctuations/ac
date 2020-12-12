@@ -1,4 +1,5 @@
 import Head from "next/head";
+import useSWR from "swr";
 import { useState, useEffect } from "react";
 import { AudioPlayerProvider } from "react-use-audio-player";
 import AudioPlayer from "../components/AudioPlayer";
@@ -14,16 +15,38 @@ import {
 } from "../components/animations";
 
 export async function getStaticProps() {
-	const fetcher = (url) => fetch(url).then((res) => res.json());
+	const fetcher = (url) => fetch(url).then((r) => r.json());
 
-	const req = await fetcher("https://api.ipify.org/?format=json"); // doesnt return right IP
-	const res = await fetcher(
-		`http://api.weatherapi.com/v1/current.json?key=c827c9095017472998c34458201611&q=${req.ip}`
+	const res = await fetcher("https://api.ipify.org/?format=json");
+	const weather = await fetcher(
+		`http://api.weatherapi.com/v1/current.json?key=c827c9095017472998c34458201611&q=${res.ip}`
 	);
-	return { props: { req, res } };
+
+	return {
+		props: {
+			res,
+			weather,
+		},
+	};
 }
 
 export default function Home(props) {
+	const fetcher = (url) => fetch(url).then((r) => r.json());
+	const { data: client } = useSWR(
+		"https://api.ipify.org/?format=json",
+		fetcher,
+		{ initialData: props.res }
+	);
+	const {
+		data: weather,
+	} = useSWR(
+		`http://api.weatherapi.com/v1/current.json?key=c827c9095017472998c34458201611&q=${client.ip}`,
+		fetcher,
+		{ initialData: props.weather }
+	);
+
+	console.log(client.ip);
+
 	useEffect(() => {
 		const albumElm = document.getElementById("album");
 		const { x, y, width, height } = albumElm.getBoundingClientRect();
@@ -38,39 +61,39 @@ export default function Home(props) {
 	}, []);
 
 	function music() {
-		switch (weatherOpt) {
-			case true:
-				const str = `${props.res.current.condition.text}`;
-				if (str.match(/rain/i)) {
-					return `/music/${gameName()}/rain/${new Date().toLocaleTimeString(
-						["en-US"],
-						{
-							hour: "2-digit",
-						}
-					)}.mp3`;
-				} else if (str.match(/snow/i)) {
-					return `/music/${gameName()}/snow/${new Date().toLocaleTimeString(
-						["en-US"],
-						{
-							hour: "2-digit",
-						}
-					)}.mp3`;
-				} else {
-					return `/music/${gameName()}/${new Date().toLocaleTimeString(
-						["en-US"],
-						{
-							hour: "2-digit",
-						}
-					)}.mp3`;
-				}
-			case false:
-				return `/music/${gameName()}/${new Date().toLocaleTimeString(
-					["en-US"],
-					{
-						hour: "2-digit",
-					}
-				)}.mp3`;
-		}
+		// switch (weatherOpt) {
+		// 	case true:
+		// 		const str = `${weather.current.condition.text}`;
+		// 		if (str.match(/rain/i)) {
+		// 			return `/music/${gameName()}/rain/${new Date().toLocaleTimeString(
+		// 				["en-US"],
+		// 				{
+		// 					hour: "2-digit",
+		// 				}
+		// 			)}.mp3`;
+		// 		} else if (str.match(/snow/i)) {
+		// 			return `/music/${gameName()}/snow/${new Date().toLocaleTimeString(
+		// 				["en-US"],
+		// 				{
+		// 					hour: "2-digit",
+		// 				}
+		// 			)}.mp3`;
+		// 		} else {
+		// 			return `/music/${gameName()}/${new Date().toLocaleTimeString(
+		// 				["en-US"],
+		// 				{
+		// 					hour: "2-digit",
+		// 				}
+		// 			)}.mp3`;
+		// 		}
+		// 	case false:
+		// 		return `/music/${gameName()}/${new Date().toLocaleTimeString(
+		// 			["en-US"],
+		// 			{
+		// 				hour: "2-digit",
+		// 			}
+		// 		)}.mp3`;
+		// }
 	}
 
 	function dragToVolume() {}
