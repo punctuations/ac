@@ -298,37 +298,93 @@ export default function Home(props) {
 						<>
 							<AnimatePresence initial={false}>
 								{tooltip && (
-									<motion.div
-										className="menu-bg text-sm text-white shadow-md mr-90 mt-14 p-12 absolute top-0 right-0 rounded-lg"
-										initial={{ opacity: 0, x: -40 }}
-										animate={{ opacity: 1, x: 0 }}
-										exit={{ opacity: 0, x: -40 }}
-									>
-										<svg
-											xmlns="http://www.w3.org/2000/svg"
-											fill="none"
-											viewBox="0 0 24 24"
-											stroke="currentColor"
-											className="h-4 w-4 float-left mr-1"
+									<>
+										<motion.div
+											className="z-40 menu-bg text-sm text-white shadow-md mr-90 mt-14 p-12 absolute top-0 right-0 rounded-lg 2xl:flex xl:flex lg:flex md:flex sm:flex hidden"
+											initial={{ opacity: 0, x: -40 }}
+											animate={{ opacity: 1, x: 0 }}
+											exit={{ opacity: 0, x: -40 }}
 										>
-											<path
-												strokeLinecap="round"
-												strokeLinejoin="round"
-												strokeWidth={2}
-												d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
-											/>
-										</svg>
-										I believe in privacy, that is why there is{" "}
-										<span className="font-bold">no</span> tracking,
-										<br /> your location is soley used to get the weather.
-										<br />
-										Your location is not touched other than this reason.
-										<br />
-										If you want more information on how
-										<br />
-										your location is used you can look at the
-										<br /> GitHub repo, you can find it in the bottom right .{" "}
-									</motion.div>
+											<svg
+												xmlns="http://www.w3.org/2000/svg"
+												fill="none"
+												viewBox="0 0 24 24"
+												stroke="currentColor"
+												className="h-4 w-4 float-left mr-1"
+											>
+												<path
+													strokeLinecap="round"
+													strokeLinejoin="round"
+													strokeWidth={2}
+													d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
+												/>
+											</svg>
+											<p>
+												I believe in privacy, that is why there is{" "}
+												<span className="font-bold">no</span> tracking,
+												<br /> your location is soley used to get the weather.
+												<br />
+												Your location is not touched other than this reason.
+												<br />
+												If you want more information on how
+												<br />
+												your location is used you can look at the
+												<br /> GitHub repo, you can find it in the bottom right.{" "}
+											</p>
+										</motion.div>
+
+										<div className="2xl:hidden xl:hidden lg:hidden md:hidden sm:hidden flex justify-center items-center">
+											<motion.div
+												className="z-40 menu-bg absolute text-sm text-white shadow-md p-12 rounded-lg"
+												initial={{ opacity: 0, y: 40 }}
+												animate={{ opacity: 1, y: 0 }}
+												exit={{ opacity: 0, y: 40 }}
+											>
+												<svg
+													xmlns="http://www.w3.org/2000/svg"
+													fill="none"
+													viewBox="0 0 24 24"
+													stroke="currentColor"
+													className="h-4 w-4 absolute top-0 right-0 m-6"
+													onClick={() => setTooltip(!tooltip)}
+												>
+													<path
+														strokeLinecap="round"
+														strokeLinejoin="round"
+														strokeWidth={2}
+														d="M6 18L18 6M6 6l12 12"
+													/>
+												</svg>
+												<svg
+													xmlns="http://www.w3.org/2000/svg"
+													fill="none"
+													viewBox="0 0 24 24"
+													stroke="currentColor"
+													className="h-4 w-4 float-left mr-1"
+												>
+													<path
+														strokeLinecap="round"
+														strokeLinejoin="round"
+														strokeWidth={2}
+														d="M7 8h10M7 12h4m1 8l-4-4H5a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v8a2 2 0 01-2 2h-3l-4 4z"
+													/>
+												</svg>
+												<p>
+													I believe in privacy, that is why there is{" "}
+													<span className="font-bold">no</span> tracking,
+													<br /> your location is soley used to get the weather.
+													<br />
+													Your location is not touched other than this reason.
+													<br />
+													If you want more information on how
+													<br />
+													your location is used you can look at the
+													<br /> GitHub repo, you can find it in the bottom
+													right.{" "}
+												</p>
+											</motion.div>
+										</div>
+									</>
 								)}
 							</AnimatePresence>
 							<motion.div
@@ -346,6 +402,7 @@ export default function Home(props) {
 										className="h-4 w-4 inline mr-1 select-none"
 										whileHover={() => setTooltip(true)}
 										onHoverEnd={() => setTooltip(false)}
+										onClick={() => setTooltip(!tooltip)}
 									>
 										<path
 											strokeLinecap="round"
