@@ -4,18 +4,18 @@ ac:
   // Website todo
     ☐ Make background fade in/out when transitioning games                                                                                                   @matt @critical
     ☐ Use localStorage to remember the user's weather preference (every few seconds update the localStorage)                                                 @matt @critical
-    ☐ Add weather music aswell by using APIs                                                                                                                 @matt @high
+    ✔ Add weather music aswell by using APIs                                                                                                                 @matt @high
     ☐ Add cog top right to opt-out of weather and allow manual weather selection and time selection                                                          @matt @high
     ✔ Make volume buttons more responsive (grow/shrink on click)                                                                                             @matt @high
     ✘ Add 30min ver instead                                                                                                                                  @matt @high
     ✔ Add parallax effect like on dbio homepage for album art                                                                                                @matt @high
     ☐ Add spacebar functionality (toggle play/pause)                                                                                                         @matt @low
     ☐ Add skeleton loader or image optimization                                                                                                              @matt @low
-    ☐ Add volume bar                                                                                                                                         @matt @low
+    ☐ Add volume bar functionality                                                                                                                           @matt @low
     ✔ Add mute button                                                                                                                                        @matt @low
     // Bugs
       ✔ Fix Tooltip on mobile for options menu                                                                                                               @matt @critical
-      ✘ Fix bug in firefox where there is no backdrop blur                                                                                                   @matt @high @today @wontfix
+      ✘ Fix bug in firefox where there is no backdrop blur  @wontfix                                                                                         @matt @high @today
       ✔ Fix the IP address that the webpage is recieving, currently recieving IP of vercel server (I assume)                                                 @matt @critical 
       ✔ Album art clips over top of the play/pause buttton when tilting                                                                                      @matt @critical
   API:
@@ -25,8 +25,8 @@ ac:
     ✔ Return JSON like shown { time: '08 PM', firefoxTime: '8 PM', music: [ { game: 'New Horizons', file: '08 PM.mp3', firefoxFile: '8 PM.mp3' }, { ... } ] }@matt @high
     ☐ add ability to add query on end of domain for custom time or weather i.e. https://api.example.com?6AM,Rainy                                            @matt @high
     // Bugs
-      ☐ Window not initializing, find a way to render page w/o ssr                                                                                           @matt @critical
-  ☐ Post-Launch
+      ☐ Window not initializing, find a way to render page w/o ssr or use a different method to get full URL                                                 @matt @critical
+  Post-Launch:
     // After the beta is over
     ☐ Put on Product Hunt                                                                                                                                    @matt @high
     ☐ Put on twitter                                                                                                                                         @matt @high
