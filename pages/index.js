@@ -45,8 +45,6 @@ export default function Home(props) {
 		{ initialData: props.weather }
 	);
 
-	console.log(client.ip);
-
 	useEffect(() => {
 		const albumElm = document.getElementById("album");
 		const { x, y, width, height } = albumElm.getBoundingClientRect();
@@ -61,39 +59,39 @@ export default function Home(props) {
 	}, []);
 
 	function music() {
-		// switch (weatherOpt) {
-		// 	case true:
-		// 		const str = `${weather.current.condition.text}`;
-		// 		if (str.match(/rain/i)) {
-		// 			return `/music/${gameName()}/rain/${new Date().toLocaleTimeString(
-		// 				["en-US"],
-		// 				{
-		// 					hour: "2-digit",
-		// 				}
-		// 			)}.mp3`;
-		// 		} else if (str.match(/snow/i)) {
-		// 			return `/music/${gameName()}/snow/${new Date().toLocaleTimeString(
-		// 				["en-US"],
-		// 				{
-		// 					hour: "2-digit",
-		// 				}
-		// 			)}.mp3`;
-		// 		} else {
-		// 			return `/music/${gameName()}/${new Date().toLocaleTimeString(
-		// 				["en-US"],
-		// 				{
-		// 					hour: "2-digit",
-		// 				}
-		// 			)}.mp3`;
-		// 		}
-		// 	case false:
-		// 		return `/music/${gameName()}/${new Date().toLocaleTimeString(
-		// 			["en-US"],
-		// 			{
-		// 				hour: "2-digit",
-		// 			}
-		// 		)}.mp3`;
-		// }
+		switch (weatherOpt) {
+			case true:
+				const str = `${weather.current.condition.text}`;
+				if (str.match(/rain/i)) {
+					return `/music/${gameName()}/rain/${new Date().toLocaleTimeString(
+						["en-US"],
+						{
+							hour: "2-digit",
+						}
+					)}.mp3`;
+				} else if (str.match(/snow/i)) {
+					return `/music/${gameName()}/snow/${new Date().toLocaleTimeString(
+						["en-US"],
+						{
+							hour: "2-digit",
+						}
+					)}.mp3`;
+				} else {
+					return `/music/${gameName()}/${new Date().toLocaleTimeString(
+						["en-US"],
+						{
+							hour: "2-digit",
+						}
+					)}.mp3`;
+				}
+			case false:
+				return `/music/${gameName()}/${new Date().toLocaleTimeString(
+					["en-US"],
+					{
+						hour: "2-digit",
+					}
+				)}.mp3`;
+		}
 	}
 
 	function dragToVolume() {}
