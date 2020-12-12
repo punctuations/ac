@@ -95,7 +95,7 @@ export default function Error() {
 						initial="initial"
 						animate="enter"
 						variants={second}
-						className="glass 2xl:z-0 xl:z-0 lg:z-0 md:z-20 sm:z-20 z-0 2xl:ml-80 xl:ml-80 lg:ml-80 md:ml-64 sm:ml-64 ml-16 2xl:mt-64 xl:mt-64 lg:mt-64 md:mt-40 sm:mt-0 mt-14 absolute rounded-xl 2xl:p-12 xl:p-12 lg:p-12 md:p-6 sm:p-6 p-3 text-white font-semibold shadow-2xl 2xl:text-3xl xl:text-3xl lg:text-3xl md:text-xl sm:text-lg text-sm"
+						className="glass 2xl:z-0 xl:z-0 lg:z-0 md:z-20 sm:z-20 z-0 2xl:ml-80 xl:ml-80 lg:ml-80 md:ml-64 sm:ml-64 ml-52 2xl:mt-64 xl:mt-64 lg:mt-64 md:mt-40 sm:mt-0 mt-64 absolute rounded-xl 2xl:p-12 xl:p-12 lg:p-12 md:p-6 sm:p-6 p-3 text-white font-semibold shadow-2xl 2xl:text-3xl xl:text-3xl lg:text-3xl md:text-xl sm:text-lg text-sm"
 					>
 						<span className="text-shadow select-none">page not found</span>
 					</motion.div>
