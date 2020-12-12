@@ -6,7 +6,7 @@ export default function Error() {
 	return (
 		<>
 			<Head>
-				<title>Animal Crossing - 404</title>
+				<title>404 - Animal Crossing</title>
 				<link rel="icon" href="/favicon.ico" />
 				<meta
 					name="viewport"
