@@ -58,39 +58,82 @@ export default function Home(props) {
 		});
 	}, []);
 
+	const [override, setOverride] = useState(null);
+
+	function changeTime() {
+		if (document.getElementById("time").value != "") {
+			if (parseInt(document.getElementById("time").value.split(":")[0]) == 0) {
+				setOverride(`12 AM`);
+			} else if (
+				parseInt(document.getElementById("time").value.split(":")[0]) == 12
+			) {
+				setOverride(`12 PM`);
+			} else if (
+				parseInt(document.getElementById("time").value.split(":")[0]) >= 13
+			) {
+				setOverride(
+					`${
+						parseInt(document.getElementById("time").value.split(":")[0]) % 12
+					} PM`
+				);
+			} else {
+				setOverride(
+					`${parseInt(document.getElementById("time").value.split(":")[0])} AM`
+				);
+			}
+		}
+	}
+
 	function music() {
-		switch (weatherOpt) {
+		switch (override != null) {
 			case true:
-				const str = `${weather.current.condition.text}`;
-				if (str.match(/rain/i)) {
-					return `/music/${gameName()}/rain/${new Date().toLocaleTimeString(
-						["en-US"],
-						{
-							hour: "2-digit",
+				switch (weatherOpt) {
+					case true:
+						const str = `${weather.current.condition.text}`;
+						if (str.match(/rain/i)) {
+							return `/music/${gameName()}/rain/${override}.mp3`;
+						} else if (str.match(/snow/i)) {
+							return `/music/${gameName()}/snow/${override}.mp3`;
+						} else {
+							return `/music/${gameName()}/${override}.mp3`;
 						}
-					)}.mp3`;
-				} else if (str.match(/snow/i)) {
-					return `/music/${gameName()}/snow/${new Date().toLocaleTimeString(
-						["en-US"],
-						{
-							hour: "2-digit",
-						}
-					)}.mp3`;
-				} else {
-					return `/music/${gameName()}/${new Date().toLocaleTimeString(
-						["en-US"],
-						{
-							hour: "2-digit",
-						}
-					)}.mp3`;
+					case false:
+						return `/music/${gameName()}/${override}.mp3`;
 				}
 			case false:
-				return `/music/${gameName()}/${new Date().toLocaleTimeString(
-					["en-US"],
-					{
-						hour: "2-digit",
-					}
-				)}.mp3`;
+				switch (weatherOpt) {
+					case true:
+						const str = `${weather.current.condition.text}`;
+						if (str.match(/rain/i)) {
+							return `/music/${gameName()}/rain/${new Date().toLocaleTimeString(
+								["en-US"],
+								{
+									hour: "2-digit",
+								}
+							)}.mp3`;
+						} else if (str.match(/snow/i)) {
+							return `/music/${gameName()}/snow/${new Date().toLocaleTimeString(
+								["en-US"],
+								{
+									hour: "2-digit",
+								}
+							)}.mp3`;
+						} else {
+							return `/music/${gameName()}/${new Date().toLocaleTimeString(
+								["en-US"],
+								{
+									hour: "2-digit",
+								}
+							)}.mp3`;
+						}
+					case false:
+						return `/music/${gameName()}/${new Date().toLocaleTimeString(
+							["en-US"],
+							{
+								hour: "2-digit",
+							}
+						)}.mp3`;
+				}
 		}
 	}
 
@@ -204,6 +247,14 @@ export default function Home(props) {
 	const [hour, setHour] = useState(
 		new Date().toLocaleTimeString(["en-US"], { hour: "2-digit" })
 	);
+
+	function gameHour() {
+		if (override != null) {
+			return override;
+		} else {
+			return hour;
+		}
+	}
 
 	const [weatherOpt, setWeatherPref] = useState(true);
 
@@ -482,11 +533,16 @@ export default function Home(props) {
 								<div>
 									Custom Time:<br></br>
 									<input
+										id="time"
 										type="time"
 										placeholder="--:-- --"
 										className="opacity-50"
-										disabled
-									></input>
+									/>
+									<input
+										onClick={() => changeTime()}
+										type="submit"
+										className=" ml-2 shadow-lg p-1 rounded-md focus:outline-none cursor-pointer glass opacity-75"
+									/>
 								</div>
 							</motion.div>
 						</>
@@ -604,7 +660,7 @@ export default function Home(props) {
 							className="font-extrabold text-3xl hover:underline cursor-pointer"
 							variants={songName}
 						>
-							{gameName()} - <span>{hour}</span>
+							{gameName()} - <span>{gameHour()}</span>
 						</motion.span>
 						<br />
 						Animal Crossing{" "}
