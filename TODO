@@ -5,7 +5,7 @@ ac:
     ☐ Make background fade in/out when transitioning games                                                                                                   @matt @critical
     ☐ Use localStorage to remember the user's weather preference (every few seconds update the localStorage)                                                 @matt @critical
     ✔ Add weather music aswell by using APIs                                                                                                                 @matt @high
-    ☐ Add cog top right to opt-out of weather and allow manual weather selection and time selection                                                          @matt @high
+    ✔ Add cog top right to opt-out of weather and allow manual weather selection and time selection                                                          @matt @high
     ✔ Make volume buttons more responsive (grow/shrink on click)                                                                                             @matt @high
     ✘ Add 30min ver instead                                                                                                                                  @matt @high
     ✔ Add parallax effect like on dbio homepage for album art                                                                                                @matt @high
@@ -14,6 +14,7 @@ ac:
     ☐ Add volume bar functionality                                                                                                                           @matt @low
     ✔ Add mute button                                                                                                                                        @matt @low
     // Bugs
+      ☐ Fix the request to the weather API                                                                                                                   @matt @critical 
       ✔ Fix Tooltip on mobile for options menu                                                                                                               @matt @critical
       ✘ Fix bug in firefox where there is no backdrop blur  @wontfix                                                                                         @matt @high @today
       ✔ Fix the IP address that the webpage is recieving, currently recieving IP of vercel server (I assume)                                                 @matt @critical 
