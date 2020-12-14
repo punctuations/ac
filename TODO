@@ -9,6 +9,7 @@ ac:
     ✔ Make volume buttons more responsive (grow/shrink on click)                                                                                             @matt @critical
     ✘ Add 30min ver instead                                                                                                                                  @matt @high
     ✔ Add parallax effect like on dbio homepage for album art                                                                                                @matt @low
+    ☐ Add Current weather next to hour & game name if different weather other than clear i.e. New Horizons - 6 AM (Snow)                                     @matt @high
     ☐ Add spacebar functionality (toggle play/pause)                                                                                                         @matt @high
     ☐ Add skeleton loader or image optimization                                                                                                              @matt @low
     ☐ Add volume bar functionality                                                                                                                           @matt @critical
