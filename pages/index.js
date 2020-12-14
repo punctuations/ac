@@ -243,10 +243,22 @@ export default function Home(props) {
 		}
 	}
 
+	function parseHour() {
+		if (
+			new Date().toLocaleTimeString(["en-US"], { hour: "2-digit" }).match(/pm/i)
+		) {
+			return `${parseInt(
+				new Date().toLocaleTimeString(["en-US"], { hour: "2-digit" })
+			)} PM`;
+		} else {
+			return `${parseInt(
+				new Date().toLocaleTimeString(["en-US"], { hour: "2-digit" })
+			)} AM`;
+		}
+	}
+
 	const [date, setTime] = useState(new Date().toLocaleTimeString());
-	const [hour, setHour] = useState(
-		new Date().toLocaleTimeString(["en-US"], { hour: "2-digit" })
-	);
+	const [hour, setHour] = useState(parseHour());
 
 	function gameHour() {
 		if (override != null) {
@@ -272,7 +284,7 @@ export default function Home(props) {
 
 	setInterval(() => {
 		setTime(new Date().toLocaleTimeString());
-		setHour(new Date().toLocaleTimeString([], { hour: "2-digit" }));
+		setHour(parseHour());
 	}, 1000);
 
 	return (
