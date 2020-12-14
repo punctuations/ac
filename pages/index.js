@@ -58,26 +58,35 @@ export default function Home(props) {
 		});
 	}, []);
 
-	const [override, setOverride] = useState(null);
+	const [timeOverride, setTimeOverride] = useState(null);
+	const [weatherOverride, setWeatherOverride] = useState(null);
+
+	function changeWeather() {
+		if (document.getElementById("weather").value != "default") {
+			setWeatherOverride(document.getElementById("weather").value);
+		} else if (document.getElementById("weather").value == "default") {
+			setWeatherOverride(null);
+		}
+	}
 
 	function changeTime() {
 		if (document.getElementById("time").value != "") {
 			if (parseInt(document.getElementById("time").value.split(":")[0]) == 0) {
-				setOverride(`12 AM`);
+				setTimeOverride(`12 AM`);
 			} else if (
 				parseInt(document.getElementById("time").value.split(":")[0]) == 12
 			) {
-				setOverride(`12 PM`);
+				setTimeOverride(`12 PM`);
 			} else if (
 				parseInt(document.getElementById("time").value.split(":")[0]) >= 13
 			) {
-				setOverride(
+				setTimeOverride(
 					`${
 						parseInt(document.getElementById("time").value.split(":")[0]) % 12
 					} PM`
 				);
 			} else {
-				setOverride(
+				setTimeOverride(
 					`${parseInt(document.getElementById("time").value.split(":")[0])} AM`
 				);
 			}
@@ -85,54 +94,84 @@ export default function Home(props) {
 	}
 
 	function music() {
-		switch (override != null) {
+		switch (timeOverride != null) {
 			case true:
-				switch (weatherOpt) {
+				switch (weatherOverride != null) {
 					case true:
-						const str = `${weather.current.condition.text}`;
-						if (str.match(/rain/i)) {
-							return `/music/${gameName()}/rain/${override}.mp3`;
-						} else if (str.match(/snow/i)) {
-							return `/music/${gameName()}/snow/${override}.mp3`;
-						} else {
-							return `/music/${gameName()}/${override}.mp3`;
+						switch (weatherOpt) {
+							case true:
+								return `/music/${gameName()}/${weatherOverride}/${timeOverride}.mp3`;
+							case false:
+								return `/music/${gameName()}/${timeOverride}.mp3`;
 						}
 					case false:
-						return `/music/${gameName()}/${override}.mp3`;
+						switch (weatherOpt) {
+							case true:
+								const str = `${weather.current.condition.text}`;
+								if (str.match(/rain/i)) {
+									return `/music/${gameName()}/rain/${timeOverride}.mp3`;
+								} else if (str.match(/snow/i)) {
+									return `/music/${gameName()}/snow/${timeOverride}.mp3`;
+								} else {
+									return `/music/${gameName()}/${timeOverride}.mp3`;
+								}
+							case false:
+								return `/music/${gameName()}/${timeOverride}.mp3`;
+						}
 				}
 			case false:
-				switch (weatherOpt) {
+				switch (weatherOverride != null) {
 					case true:
-						const str = `${weather.current.condition.text}`;
-						if (str.match(/rain/i)) {
-							return `/music/${gameName()}/rain/${new Date().toLocaleTimeString(
-								["en-US"],
-								{
-									hour: "2-digit",
-								}
-							)}.mp3`;
-						} else if (str.match(/snow/i)) {
-							return `/music/${gameName()}/snow/${new Date().toLocaleTimeString(
-								["en-US"],
-								{
-									hour: "2-digit",
-								}
-							)}.mp3`;
-						} else {
-							return `/music/${gameName()}/${new Date().toLocaleTimeString(
-								["en-US"],
-								{
-									hour: "2-digit",
-								}
-							)}.mp3`;
+						switch (weatherOpt) {
+							case true:
+								return `/music/${gameName()}/${weatherOverride}/${new Date().toLocaleTimeString(
+									["en-US"],
+									{
+										hour: "2-digit",
+									}
+								)}.mp3`;
+							case false:
+								return `/music/${gameName()}/${new Date().toLocaleTimeString(
+									["en-US"],
+									{
+										hour: "2-digit",
+									}
+								)}.mp3`;
 						}
 					case false:
-						return `/music/${gameName()}/${new Date().toLocaleTimeString(
-							["en-US"],
-							{
-								hour: "2-digit",
-							}
-						)}.mp3`;
+						switch (weatherOpt) {
+							case true:
+								const str = `${weather.current.condition.text}`;
+								if (str.match(/rain/i)) {
+									return `/music/${gameName()}/rain/${new Date().toLocaleTimeString(
+										["en-US"],
+										{
+											hour: "2-digit",
+										}
+									)}.mp3`;
+								} else if (str.match(/snow/i)) {
+									return `/music/${gameName()}/snow/${new Date().toLocaleTimeString(
+										["en-US"],
+										{
+											hour: "2-digit",
+										}
+									)}.mp3`;
+								} else {
+									return `/music/${gameName()}/${new Date().toLocaleTimeString(
+										["en-US"],
+										{
+											hour: "2-digit",
+										}
+									)}.mp3`;
+								}
+							case false:
+								return `/music/${gameName()}/${new Date().toLocaleTimeString(
+									["en-US"],
+									{
+										hour: "2-digit",
+									}
+								)}.mp3`;
+						}
 				}
 		}
 	}
@@ -261,8 +300,8 @@ export default function Home(props) {
 	const [hour, setHour] = useState(parseHour());
 
 	function gameHour() {
-		if (override != null) {
-			return override;
+		if (timeOverride != null) {
+			return timeOverride;
 		} else {
 			return hour;
 		}
@@ -360,7 +399,7 @@ export default function Home(props) {
 						fill="none"
 						viewBox="0 0 24 24"
 						stroke="#999797"
-						className="w-5 h-5 2xl:opacity-50 xl:opacity-50 lg:opacity-50 md:opacity-50 sm:opacity-50 opacity-100 hover:opacity-75 cursor-pointer"
+						className="select-none w-5 h-5 2xl:opacity-50 xl:opacity-50 lg:opacity-50 md:opacity-50 sm:opacity-50 opacity-100 hover:opacity-75 cursor-pointer"
 						onClick={() => setOptions(!optionsMenu)}
 					>
 						<path
@@ -542,7 +581,7 @@ export default function Home(props) {
 										</>
 									)}
 								</div>
-								<div>
+								<div className="mt-3">
 									Custom Time:<br></br>
 									<input
 										id="time"
@@ -557,8 +596,31 @@ export default function Home(props) {
 										className="ml-2 shadow-lg p-1 rounded-md focus:outline-none cursor-pointer glass"
 									/>
 									<input
-										onClick={() => setOverride(null)}
+										onClick={() => setTimeOverride(null)}
+										type="reset"
+										value="Reset"
+										className="ml-2 shadow-lg p-1 rounded-md focus:outline-none cursor-pointer glass"
+									/>
+								</div>
+								<div className="mt-1">
+									Custom Weather:<br></br>
+									<select
+										id="weather"
+										className="text-gray-700 rounded-md menu-bg"
+									>
+										<option value="default">Default</option>
+										<option value="snow">Snow</option>
+										<option value="rain">Rain</option>
+									</select>
+									<input
+										onClick={() => changeWeather()}
 										type="submit"
+										value="Change"
+										className="ml-9 shadow-lg p-1 rounded-md focus:outline-none cursor-pointer glass"
+									/>
+									<input
+										onClick={() => setWeatherOverride(null)}
+										type="reset"
 										value="Reset"
 										className="ml-2 shadow-lg p-1 rounded-md focus:outline-none cursor-pointer glass"
 									/>
