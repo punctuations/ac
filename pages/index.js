@@ -553,6 +553,7 @@ export default function Home(props) {
 									<input
 										onClick={() => changeTime()}
 										type="submit"
+										value="Change"
 										className="ml-2 shadow-lg p-1 rounded-md focus:outline-none cursor-pointer glass"
 									/>
 									<input
