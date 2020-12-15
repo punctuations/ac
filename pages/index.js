@@ -3,7 +3,7 @@ import useSWR from "swr";
 import { useState, useEffect } from "react";
 import { AudioPlayerProvider } from "react-use-audio-player";
 import AudioPlayer from "../components/AudioPlayer";
-import { motion, AnimatePresence, useMotionValue } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import {
 	first,
 	second,
@@ -224,45 +224,13 @@ export default function Home(props) {
 	function backgroundArt() {
 		switch (album) {
 			case 0:
-				return (
-					<motion.div
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ duration: 1 }}
-						exit={{ opacity: 1 }}
-						className="album-horizons"
-					></motion.div>
-				);
+				return "album-horizons";
 			case 1:
-				return (
-					<motion.div
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ duration: 1 }}
-						exit={{ opacity: 1 }}
-						className="album-leaf"
-					></motion.div>
-				);
+				return "album-leaf";
 			case 2:
-				return (
-					<motion.div
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ duration: 1 }}
-						exit={{ opacity: 1 }}
-						className="album-city"
-					></motion.div>
-				);
+				return "album-city";
 			case 3:
-				return (
-					<motion.div
-						initial={{ opacity: 0 }}
-						animate={{ opacity: 1 }}
-						transition={{ duration: 1 }}
-						exit={{ opacity: 1 }}
-						className="album-gcn"
-					></motion.div>
-				);
+				return "album-gcn";
 			default:
 				return "";
 		}
@@ -367,7 +335,16 @@ export default function Home(props) {
 					rel="stylesheet"
 				></link>
 			</Head>
-			<div>{backgroundArt()}</div>
+			<AnimatePresence initial={false} exitBeforeEnter>
+				<motion.div
+					key={backgroundArt()}
+					className={backgroundArt()}
+					transition={{ duration: 0.2 }}
+					initial={{ opacity: 0.8 }}
+					animate={{ opacity: 1 }}
+					exit={{ opacity: 0.8 }}
+				></motion.div>
+			</AnimatePresence>
 			<div className="flex 2xl:flex-row xl:flex-row lg:flex-row md:flex-row flex-col items-center justify-center z-10 absolute w-full h-full">
 				<motion.div
 					initial="initial"
