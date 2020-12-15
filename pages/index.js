@@ -307,6 +307,17 @@ export default function Home(props) {
 		}
 	}
 
+	function weatherName() {
+		const str = `${weather.current.condition.text}`;
+		if (str.match(/rain/i) || weatherOverride == "rain") {
+			return "(Rain)";
+		} else if (str.match(/snow/i) || weatherOverride == "snow") {
+			return "(Snow)";
+		} else {
+			return " ";
+		}
+	}
+
 	const [weatherOpt, setWeatherPref] = useState(true);
 
 	const [gameMenu, setMenu] = useState(false);
@@ -741,7 +752,10 @@ export default function Home(props) {
 							className="font-extrabold text-3xl hover:underline cursor-pointer"
 							variants={songName}
 						>
-							{gameName()} - <span>{gameHour()}</span>
+							{gameName()} -{" "}
+							<span>
+								{gameHour()} {weatherName()}
+							</span>
 						</motion.span>
 						<br />
 						Animal Crossing{" "}
