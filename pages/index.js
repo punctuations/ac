@@ -19,7 +19,7 @@ export async function getStaticProps() {
 
 	const res = await fetcher("https://api.ipify.org/?format=json");
 	const weather = await fetcher(
-		`http://api.weatherapi.com/v1/current.json?key=c827c9095017472998c34458201611&q=${res.ip}`
+		`https://api.weatherapi.com/v1/current.json?key=c827c9095017472998c34458201611&q=${res.ip}`
 	);
 
 	return {
@@ -40,7 +40,7 @@ export default function Home(props) {
 	const {
 		data: weather,
 	} = useSWR(
-		`http://api.weatherapi.com/v1/current.json?key=c827c9095017472998c34458201611&q=${client.ip}`,
+		`https://api.weatherapi.com/v1/current.json?key=c827c9095017472998c34458201611&q=${client.ip}`,
 		fetcher,
 		{ initialData: props.weather }
 	);
