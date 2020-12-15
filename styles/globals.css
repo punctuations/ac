@@ -107,6 +107,10 @@ img:hover {
 	filter: drop-shadow(0.5rem 0.5rem 4.25rem #000);
 }
 
+.cog-shadow {
+	filter: drop-shadow(0.2rem 0.2rem 0.5rem #000);
+}
+
 .bg {
 	height: 100%;
 	width: 100%;
