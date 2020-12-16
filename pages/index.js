@@ -35,7 +35,7 @@ export default function Home(props) {
 	const { data: client } = useSWR(
 		"https://api.ipify.org/?format=json",
 		fetcher,
-		{ initialData: props.res }
+		{ initialData: props.res, refreshInterval: 1000 }
 	);
 	const {
 		data: weather,
