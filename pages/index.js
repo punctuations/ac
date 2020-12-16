@@ -1,5 +1,6 @@
 import Head from "next/head";
 import useSWR from "swr";
+import Slider from "@material-ui/core/Slider";
 import { useState, useEffect } from "react";
 import { AudioPlayerProvider } from "react-use-audio-player";
 import AudioPlayer from "../components/AudioPlayer";
@@ -199,14 +200,6 @@ export default function Home(props) {
 		}
 	}
 
-	function audioUp() {
-		Howler.volume(Howler.volume() + 0.1);
-	}
-
-	function audioDown() {
-		Howler.volume(Howler.volume() - 0.1);
-	}
-
 	function menuSelection() {
 		switch (album) {
 			case 0:
@@ -295,7 +288,29 @@ export default function Home(props) {
 
 	const [playback, setPlayback] = useState(false);
 
-	const [volumeBar, setVolumeHover] = useState(false);
+	const [value, setValue] = useState(50);
+
+	useEffect(() => {
+		Howler.volume(parseFloat(value / 100));
+	});
+
+	const handleChange = (event, newValue) => {
+		setValue(newValue);
+	};
+
+	function audioUp() {
+		if (value > 90) {
+		} else {
+			setValue(value + 10);
+		}
+	}
+
+	function audioDown() {
+		if (value < 10) {
+		} else {
+			setValue(value - 10);
+		}
+	}
 
 	const [optionsMenu, setOptions] = useState(false);
 	const [tooltip, setTooltip] = useState(false);
@@ -750,39 +765,18 @@ export default function Home(props) {
 							src={indicator()}
 							onClick={() => toggleMute()}
 						/>
-
 						<motion.div
-							className="shadow-sm ml-2 mt-1.5 px-1 flex flex-wrap content-center menu-bg w-32 h-3 rounded-lg"
-							whileHover={{ scale: 1.1, height: 14 }}
+							initial="initial"
+							animate="enter"
+							variants={second}
+							className="ml-1 mt-1 shadow-lg glass rounded-lg px-4 w-64 h-4 flex flex-wrap content-center"
+							whileHover={{ scale: 1.03 }}
 						>
-							<motion.div
-								className="bg-white w-10 h-1 rounded-md flex justify-end"
-								initial={{ width: `${Math.round(Howler.volume() * 100)}%` }}
-								animate={{ width: `${Math.round(Howler.volume() * 100)}%` }}
-								whileHover={() => setVolumeHover(true)}
-								onHoverEnd={() => setVolumeHover(false)}
-							>
-								<AnimatePresence initial={false}>
-									{volumeBar && (
-										<motion.div
-											className="bg-gray-200 w-2 h-2 rounded-lg -mt-0.5 content-center flex flex-wrap"
-											drag="x"
-											dragConstraints={{ left: 0, right: `100%` }}
-											onDragEnd={() => dragToVolume()}
-											initial={{
-												opacity: 0,
-											}}
-											animate={{
-												opacity: 1,
-											}}
-											exit={{ opacity: 0 }}
-											whileHover={{ scale: 1.5 }}
-										>
-											<motion.div className="bg-white w-1 h-1 rounded-lg ml-0.5"></motion.div>
-										</motion.div>
-									)}
-								</AnimatePresence>
-							</motion.div>
+							<Slider
+								value={value}
+								onChange={handleChange}
+								aria-labelledby="continuous-slider"
+							/>
 						</motion.div>
 
 						<motion.svg
