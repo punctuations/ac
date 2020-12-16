@@ -286,10 +286,6 @@ export default function Home(props) {
 
 	const [weatherOpt, setWeatherPref] = useState(true);
 
-	// useEffect(() => {
-	// 	setWeatherPref(localStorage.getItem("weather"));
-	// }, []);
-
 	const [gameMenu, setMenu] = useState(false);
 	const [album, setAlbum] = useState(0);
 
