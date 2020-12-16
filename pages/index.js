@@ -177,26 +177,27 @@ export default function Home(props) {
 		}
 	}
 
-	function dragToVolume() {}
-
 	function indicator() {
-		switch (muted) {
-			case true:
-				return "/muted.svg";
-			case false:
-				return "/sound.svg";
+		if (value == 0) {
+			return "/muted.svg";
+		} else if (muted == true) {
+			return "/muted.svg";
+		} else {
+			return "/sound.svg";
 		}
 	}
 
 	function toggleMute() {
-		switch (muted) {
-			case false:
-				Howler.mute(true);
-				setMutedState(true);
-				break;
-			case true:
-				Howler.mute(false);
-				setMutedState(false);
+		if (value != 0) {
+			switch (muted) {
+				case false:
+					Howler.mute(true);
+					setMutedState(true);
+					break;
+				case true:
+					Howler.mute(false);
+					setMutedState(false);
+			}
 		}
 	}
 
