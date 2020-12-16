@@ -270,17 +270,25 @@ export default function Home(props) {
 	}
 
 	function weatherName() {
-		const str = `${weather.current.condition.text}`;
-		if (str.match(/rain/i) || weatherOverride == "rain") {
-			return "(Rain)";
-		} else if (str.match(/snow/i) || weatherOverride == "snow") {
-			return "(Snow)";
+		if (weatherOpt) {
+			const str = `${weather.current.condition.text}`;
+			if (str.match(/rain/i) || weatherOverride == "rain") {
+				return "(Rain)";
+			} else if (str.match(/snow/i) || weatherOverride == "snow") {
+				return "(Snow)";
+			} else {
+				return " ";
+			}
 		} else {
 			return " ";
 		}
 	}
 
 	const [weatherOpt, setWeatherPref] = useState(true);
+
+	// useEffect(() => {
+	// 	setWeatherPref(localStorage.getItem("weather"));
+	// }, []);
 
 	const [gameMenu, setMenu] = useState(false);
 	const [album, setAlbum] = useState(0);
