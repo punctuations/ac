@@ -35,14 +35,14 @@ export default function Home(props) {
 	const { data: client } = useSWR(
 		"https://api.ipify.org/?format=json",
 		fetcher,
-		{ initialData: props.res, revalidateOnMount: true }
+		{ initialData: props.res, refreshInterval: 1000 }
 	);
 	const {
 		data: weather,
 	} = useSWR(
 		`https://api.weatherapi.com/v1/current.json?key=c827c9095017472998c34458201611&q=${client.ip}`,
 		fetcher,
-		{ initialData: props.weather }
+		{ initialData: props.weather, revalidateOnMount: true }
 	);
 
 	useEffect(() => {
