@@ -769,7 +769,7 @@ export default function Home(props) {
 							initial="initial"
 							animate="enter"
 							variants={second}
-							className="ml-1 mt-1 shadow-lg glass rounded-lg px-4 w-64 h-4 flex flex-wrap content-center"
+							className="ml-1 mt-1 shadow-lg glass rounded-lg px-4 w-44 h-4 flex flex-wrap content-center"
 							whileHover={{ scale: 1.03 }}
 						>
 							<Slider
