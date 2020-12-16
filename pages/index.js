@@ -1,5 +1,5 @@
 import Head from "next/head";
-import useSWR, { mutate } from "swr";
+import useSWR from "swr";
 import { useState, useEffect } from "react";
 import { AudioPlayerProvider } from "react-use-audio-player";
 import AudioPlayer from "../components/AudioPlayer";
@@ -35,7 +35,7 @@ export default function Home(props) {
 	const { data: client } = useSWR(
 		"https://api.ipify.org/?format=json",
 		fetcher,
-		{ initialData: props.res }
+		{ initialData: props.res, revalidateOnMount: true }
 	);
 	const {
 		data: weather,
@@ -44,10 +44,6 @@ export default function Home(props) {
 		fetcher,
 		{ initialData: props.weather }
 	);
-
-	useEffect(() => {
-		mutate("https://api.ipify.org/?format=json");
-	}, []);
 
 	useEffect(() => {
 		const albumElm = document.getElementById("album");
