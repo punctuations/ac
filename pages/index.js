@@ -365,7 +365,9 @@ export default function Home(props) {
 						<svg
 							width="24"
 							height="24"
-							fill="currentColor"
+							fill="none"
+							stroke="currentColor"
+							strokeWidth="1.3"
 							className="opacity-50 hover:opacity-75 cursor-pointer"
 						>
 							<path
