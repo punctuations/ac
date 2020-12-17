@@ -133,10 +133,11 @@ img:hover {
 	color: #fff !important;
 }
 
-.MuiSlider-thumb:hover {
-	box-shadow: 0px 0px 0px 8px rgba(134, 131, 131, 0.1) !important;
-}
-
 .MuiSlider-thumb.MuiSlider-active {
 	box-shadow: 0px 0px 0px 14px rgba(134, 131, 131, 0.15) !important;
+}
+
+.MuiSlider-thumb.Mui-focusVisible,
+.MuiSlider-thumb:hover {
+	box-shadow: 0px 0px 0px 8px rgba(134, 131, 131, 0.1) !important;
 }
