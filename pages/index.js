@@ -272,9 +272,13 @@ export default function Home(props) {
 	function weatherName() {
 		if (weatherOpt) {
 			const str = `${weather.current.condition.text}`;
-			if (str.match(/rain/i) || weatherOverride == "rain") {
+			if (weatherOverride == "rain") {
 				return "(Rain)";
-			} else if (str.match(/snow/i) || weatherOverride == "snow") {
+			} else if (weatherOverride == "snow") {
+				return "(Snow)";
+			} else if (str.match(/rain/i)) {
+				return "(Rain)";
+			} else if (str.match(/snow/i)) {
 				return "(Snow)";
 			} else {
 				return " ";
