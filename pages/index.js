@@ -1,7 +1,7 @@
 import Head from "next/head";
 import useSWR from "swr";
 import Slider from "@material-ui/core/Slider";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { AudioPlayerProvider } from "react-use-audio-player";
 import AudioPlayer from "../components/AudioPlayer";
 import { motion, AnimatePresence } from "framer-motion";
@@ -288,7 +288,27 @@ export default function Home(props) {
 		}
 	}
 
-	const [weatherOpt, setWeatherPref] = useState(true);
+	const [weatherOpt, setWeatherPref] = useState(1);
+
+	if (process.browser) {
+		useEffect(() => {
+			if (!localStorage.getItem("weather")) {
+				setWeatherPref(1);
+			} else {
+				setWeatherPref(parseInt(localStorage.getItem("weather")));
+			}
+		}, []);
+	}
+
+	function toggleWeather(state) {
+		if (state) {
+			setWeatherPref(1);
+			localStorage.setItem("weather", 1);
+		} else {
+			setWeatherPref(0);
+			localStorage.setItem("weather", 0);
+		}
+	}
 
 	const [gameMenu, setMenu] = useState(false);
 	const [album, setAlbum] = useState(0);
@@ -561,7 +581,7 @@ export default function Home(props) {
 												viewBox="0 0 24 24"
 												stroke="currentColor"
 												className="h-6 w-6 ml-1 inline cursor-pointer select-none text-green-200"
-												onClick={() => setWeatherPref(false)}
+												onClick={() => toggleWeather(false)}
 											>
 												<path
 													strokeLinecap="round"
@@ -583,7 +603,7 @@ export default function Home(props) {
 												viewBox="0 0 24 24"
 												stroke="currentColor"
 												className="h-6 w-6 ml-1 inline cursor-pointer select-none text-rose-300"
-												onClick={() => setWeatherPref(true)}
+												onClick={() => toggleWeather(true)}
 											>
 												<path
 													strokeLinecap="round"

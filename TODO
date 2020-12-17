@@ -3,7 +3,7 @@ ac:
   Website:
   // Website todo
     ✔ Make background fade in/out when transitioning games                                                                                                   @matt @critical
-    ☐ Use localStorage to remember the user's weather preference (every few seconds update the localStorage)                                                 @matt @critical
+    ✔ Use localStorage to remember the user's weather preference (every few seconds update the localStorage)                                                 @matt @critical
     ✔ Add weather music aswell by using APIs                                                                                                                 @matt @high
     ✔ Add cog top right to opt-out of weather and allow manual weather selection and time selection                                                          @matt @high
     ✔ Make volume buttons more responsive (grow/shrink on click)                                                                                             @matt @critical
