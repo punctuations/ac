@@ -376,7 +376,7 @@ export default function Home(props) {
 					variants={fourth}
 					className="font-bold text-white m-6 absolute top-0 left-0"
 				>
-					{date}
+					<span className="cog-shadow">{date}</span>
 				</motion.div>
 
 				<motion.div
