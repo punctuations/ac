@@ -100,14 +100,14 @@ export default function Home(props) {
 				switch (weatherOverride != null) {
 					case true:
 						switch (weatherOpt) {
-							case true:
+							case 1:
 								return `/music/${gameName()}/${weatherOverride}/${timeOverride}.mp3`;
-							case false:
+							case 0:
 								return `/music/${gameName()}/${timeOverride}.mp3`;
 						}
 					case false:
 						switch (weatherOpt) {
-							case true:
+							case 1:
 								const str = `${weather.current.condition.text}`;
 								if (str.match(/rain/i)) {
 									return `/music/${gameName()}/rain/${timeOverride}.mp3`;
@@ -116,7 +116,7 @@ export default function Home(props) {
 								} else {
 									return `/music/${gameName()}/${timeOverride}.mp3`;
 								}
-							case false:
+							case 0:
 								return `/music/${gameName()}/${timeOverride}.mp3`;
 						}
 				}
@@ -124,14 +124,14 @@ export default function Home(props) {
 				switch (weatherOverride != null) {
 					case true:
 						switch (weatherOpt) {
-							case true:
+							case 1:
 								return `/music/${gameName()}/${weatherOverride}/${new Date().toLocaleTimeString(
 									["en-US"],
 									{
 										hour: "2-digit",
 									}
 								)}.mp3`;
-							case false:
+							case 0:
 								return `/music/${gameName()}/${new Date().toLocaleTimeString(
 									["en-US"],
 									{
@@ -141,7 +141,7 @@ export default function Home(props) {
 						}
 					case false:
 						switch (weatherOpt) {
-							case true:
+							case 1:
 								const str = `${weather.current.condition.text}`;
 								if (str.match(/rain/i)) {
 									return `/music/${gameName()}/rain/${new Date().toLocaleTimeString(
@@ -165,7 +165,7 @@ export default function Home(props) {
 										}
 									)}.mp3`;
 								}
-							case false:
+							case 0:
 								return `/music/${gameName()}/${new Date().toLocaleTimeString(
 									["en-US"],
 									{
