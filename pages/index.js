@@ -295,7 +295,9 @@ export default function Home(props) {
 			if (!localStorage.getItem("weather")) {
 				setWeatherPref(1);
 			} else {
+				Howl.unload;
 				setWeatherPref(parseInt(localStorage.getItem("weather")));
+				Howl.load;
 			}
 		}, []);
 	}
@@ -307,6 +309,19 @@ export default function Home(props) {
 		} else {
 			setWeatherPref(0);
 			localStorage.setItem("weather", 0);
+		}
+	}
+
+	function gameRedirect() {
+		switch (gameName()) {
+			case "New Horizons":
+				return "https://nookipedia.com/wiki/Animal_Crossing:_New_Horizons";
+			case "New Leaf":
+				return "https://nookipedia.com/wiki/Animal_Crossing:_New_Leaf";
+			case "City Folk":
+				return "https://nookipedia.com/wiki/Animal_Crossing:_City_Folk";
+			case "Gamecube":
+				return "https://nookipedia.com/wiki/Animal_Crossing";
 		}
 	}
 
@@ -732,14 +747,16 @@ export default function Home(props) {
 				</motion.div>
 				<div className="relative">
 					<div className="flex items-center justify-center">
-						<motion.img
-							src={menuSelection()}
-							className="transform-origin z-0 mt-5 max-w-xl w-full rounded-xl shadow-lg cursor-pointer"
-							id="album"
-							initial="initial"
-							animate="enter"
-							variants={first}
-						/>
+						<a href={gameRedirect()} target="_blank">
+							<motion.img
+								src={menuSelection()}
+								className="transform-origin z-0 mt-5 max-w-xl w-full rounded-xl shadow-lg cursor-pointer"
+								id="album"
+								initial="initial"
+								animate="enter"
+								variants={first}
+							/>
+						</a>
 						<motion.div
 							className="absolute z-20 play-bg rounded-lg p-2 cursor-pointer"
 							initial="initial"
@@ -775,10 +792,12 @@ export default function Home(props) {
 							className="font-extrabold text-3xl hover:underline cursor-pointer"
 							variants={songName}
 						>
-							{gameName()} -{" "}
-							<span>
-								{gameHour()} {weatherName()}
-							</span>
+							<a href={gameRedirect()} target="_blank">
+								{gameName()} -{" "}
+								<span>
+									{gameHour()} {weatherName()}
+								</span>
+							</a>
 						</motion.span>
 						<br />
 						Animal Crossing{" "}
