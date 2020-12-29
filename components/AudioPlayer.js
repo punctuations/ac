@@ -1,7 +1,7 @@
 import React from "react";
 import { useAudioPlayer } from "react-use-audio-player";
 
-const AudioPlayer = ({ file, playButton, pauseButton }) => {
+const AudioPlayer = ({ file, playButton, pauseButton, state }) => {
 	const { play, pause, ready, loading, playing } = useAudioPlayer({
 		src: file,
 		format: "mp3",
@@ -29,12 +29,20 @@ const AudioPlayer = ({ file, playButton, pauseButton }) => {
 
 	return (
 		<>
-			<img
-				src={!playing ? pauseButton : playButton}
-				onClick={togglePlay}
-				className="w-12 h-12 select-none"
-				style={{ cursor: "pointer" }}
-			/>
+			{state ? (
+				<img
+					src={!playing ? pauseButton : playButton}
+					onClick={togglePlay}
+					className="w-12 h-12 select-none"
+					style={{ cursor: "pointer" }}
+				/>
+			) : (
+				<img
+					src={pauseButton}
+					className="w-12 h-12 select-none"
+					style={{ cursor: "pointer" }}
+				/>
+			)}
 		</>
 	);
 };

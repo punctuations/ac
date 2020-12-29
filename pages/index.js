@@ -59,6 +59,8 @@ export default function Home(props) {
 		});
 	}, []);
 
+	const [ready, setReady] = useState(false);
+
 	const [timeOverride, setTimeOverride] = useState(null);
 	const [weatherOverride, setWeatherOverride] = useState(null);
 
@@ -293,8 +295,10 @@ export default function Home(props) {
 	if (process.browser) {
 		useEffect(() => {
 			if (!localStorage.getItem("weather")) {
+				setReady(true);
 				setWeatherPref(1);
 			} else {
+				setReady(true);
 				Howl.unload;
 				setWeatherPref(parseInt(localStorage.getItem("weather")));
 				Howl.load;
@@ -769,6 +773,7 @@ export default function Home(props) {
 									file={music()}
 									pauseButton="/pause.svg"
 									playButton="/play.svg"
+									state={ready}
 								/>
 							</AudioPlayerProvider>
 						</motion.div>
