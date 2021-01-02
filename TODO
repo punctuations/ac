@@ -12,6 +12,7 @@ ac:
     ✔ Add Current weather next to hour & game name if different weather other than clear i.e. New Horizons - 6 AM (Snow)                                     @matt @high
     ☐ Add spacebar functionality (toggle play/pause)                                                                                                         @matt @high
     ☐ Add skeleton loader or image optimization                                                                                                              @matt @low
+    ☐ unload & reload howler when switching games to make sure songs don't overlap                                                                           @matt @high 
     ✔ Add volume bar functionality                                                                                                                           @matt @critical
     ✔ Add mute button                                                                                                                                        @matt @low
     // Bugs
@@ -25,12 +26,12 @@ ac:
     ✔ Create API repo                                                                                                                                        @matt @critical
     ✔ Allow API to return the time and Animal Crossing song                                                                                                  @matt @critical
     ✔ Return JSON like shown { time: '08 PM', firefoxTime: '8 PM', music: [ { game: 'New Horizons', file: '08 PM.mp3', firefoxFile: '8 PM.mp3' }, { ... } ] }@matt @high
-    ☐ add ability to add query on end of domain for custom time or weather i.e. https://api.example.com?time=6AM&weather=Rainy                                            @matt @high
+    ✔ add ability to add query on end of domain for custom time or weather i.e. https://api.example.com?time=6AM&weather=Rainy                                            @matt @high
     // Bugs
-      ☐ Window not initializing, find a way to render page w/o ssr or use a different method to get full URL                                                 @matt @critical
+      ✔ Window not initializing, find a way to render page w/o ssr or use a different method to get full URL                                                 @matt @critical
   Post-Launch:
     // After the beta is over
-    ☐ Put on Product Hunt                                                                                                                                    @matt @high
+    ✔ Put on Product Hunt                                                                                                                                    @matt @high
     ✔ Put on twitter                                                                                                                                         @matt @high
   Do When bored:
     ☐ redo entire music system to minimize number of mp3 files by just using parseInt() on the date so no more 03 and 0                                      @matt @high
