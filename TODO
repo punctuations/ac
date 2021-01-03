@@ -12,7 +12,6 @@ ac:
     ✔ Add Current weather next to hour & game name if different weather other than clear i.e. New Horizons - 6 AM (Snow)                                     @matt @high
     ☐ Add spacebar functionality (toggle play/pause)                                                                                                         @matt @high
     ☐ Add skeleton loader or image optimization                                                                                                              @matt @low
-    ☐ unload & reload howler when switching games to make sure songs don't overlap                                                                           @matt @high 
     ✔ Add volume bar functionality                                                                                                                           @matt @critical
     ✔ Add mute button                                                                                                                                        @matt @low
     // Bugs
