@@ -385,7 +385,7 @@ export default function Home(props) {
 				openGraph={{
 					type: "website",
 					url: "https://ac.vercel.app/",
-					title: "ac — matt.mdx",
+					title: "ac — animal crossing music",
 					description: "Animal Crossing music for any time & weather!",
 					images: [
 						{
