@@ -1,4 +1,5 @@
 import Head from "next/head";
+import { NextSeo } from "next-seo";
 import useSWR from "swr";
 import Slider from "@material-ui/core/Slider";
 import React, { useState, useEffect } from "react";
@@ -371,33 +372,36 @@ export default function Home(props) {
 	return (
 		<>
 			<Head>
-				<title>Animal Crossing - {hour}</title>
 				<link rel="icon" href="/favicon.ico" />
-				<meta
-					name="viewport"
-					content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
-				/>
-				<meta
-					name="description"
-					content="Animal Crossing Music Depending on the time!"
-				/>
-				<meta property="og:title" content="Animal Crossing Time" />
-				<meta property="og:image" content="/favicon.ico" />
-				<meta
-					property="og:description"
-					content="Animal Crossing Music Depending on the time!"
-				/>
-				<meta name="twitter:image" content="/favion.ico" />
-				<meta name="twitter:card" content="summary" />
-				<meta name="twitter:title" content="Animal Crossing Time" />
-				<meta name="twitter:creator" content="@wwwdotca" />
-				<meta name="twitter:site" content="@wwwdotca" />
 				<meta name="theme-color" content="#16b816" />
 				<link
 					href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
 					rel="stylesheet"
 				></link>
 			</Head>
+			<NextSeo
+				title={`ac — ${hour}`}
+				description="Animal Crossing music for any time & weather!"
+				openGraph={{
+					type: "website",
+					url: "https://ac.vercel.app/",
+					title: "ac — matt.mdx",
+					description: "Animal Crossing music for any time & weather!",
+					images: [
+						{
+							url: "https://ac.vercel.app/favicon.ico",
+							width: "400px",
+							height: "200px",
+						},
+					],
+				}}
+				twitter={{
+					handle: "@atmattt",
+					site: "@atmattt",
+					cardType: "summary_large_image",
+				}}
+			/>
+
 			<AnimatePresence initial={false} exitBeforeEnter>
 				<motion.div
 					key={backgroundArt()}
