@@ -390,8 +390,6 @@ export default function Home(props) {
 					images: [
 						{
 							url: "https://ac.vercel.app/favicon.ico",
-							width: "400px",
-							height: "200px",
 						},
 					],
 				}}
