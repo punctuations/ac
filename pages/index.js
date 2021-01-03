@@ -869,7 +869,12 @@ export default function Home(props) {
 					</motion.div>
 				</div>
 			</div>
-			<motion.footer className="z-20 absolute left-2/6 bottom-8 text-white">
+			<motion.footer
+				className="z-20 absolute left-2/6 bottom-8 text-white"
+				initial="initial"
+				animate="enter"
+				variants={fourth}
+			>
 				Developed by{" "}
 				<a
 					href="https://dont-ping.me"
