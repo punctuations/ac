@@ -869,6 +869,36 @@ export default function Home(props) {
 					</motion.div>
 				</div>
 			</div>
+			<motion.footer className="z-20 absolute left-2/6 bottom-8 text-white">
+				Developed by{" "}
+				<a
+					href="https://dont-ping.me"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="transition-colors duration-300 ease-in-out underline cursor-pointer hover:text-gray-200"
+				>
+					Matt
+				</a>
+				. Not affliated with{" "}
+				<a
+					href="https://nintendo.com"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="transition-colors duration-300 ease-in-out underline cursor-pointer hover:text-red-300"
+				>
+					Nintendo
+				</a>{" "}
+				or{" "}
+				<a
+					href="https://www.animal-crossing.com"
+					target="_blank"
+					rel="noopener noreferrer"
+					className="transition-colors duration-300 ease-in-out underline cursor-pointer hover:text-green-300"
+				>
+					Animal Crossing
+				</a>
+				.
+			</motion.footer>
 		</>
 	);
 }
