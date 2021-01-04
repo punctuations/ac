@@ -374,6 +374,10 @@ export default function Home(props) {
 			<Head>
 				<link rel="icon" href="/favicon.ico" />
 				<meta name="theme-color" content="#16b816" />
+				<meta
+					property="og:image"
+					content="https://cdn.dont-ping.me/leaf2.png"
+				/>
 				<link
 					href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
 					rel="stylesheet"
@@ -387,11 +391,6 @@ export default function Home(props) {
 					url: "https://ac.vercel.app/",
 					title: "ac — animal crossing music",
 					description: "Animal Crossing music for any time & weather!",
-					images: [
-						{
-							url: "https://cdn.dont-ping.me/leaf.png",
-						},
-					],
 				}}
 				twitter={{
 					handle: "@atmattt",
