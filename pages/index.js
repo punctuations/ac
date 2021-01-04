@@ -1,5 +1,4 @@
 import Head from "next/head";
-import { NextSeo } from "next-seo";
 import useSWR from "swr";
 import Slider from "@material-ui/core/Slider";
 import React, { useState, useEffect } from "react";
@@ -374,30 +373,23 @@ export default function Home(props) {
 			<Head>
 				<link rel="icon" href="/favicon.ico" />
 				<meta name="theme-color" content="#16b816" />
+				<meta name="viewport" content="width=device-width" />
+				<meta charset="utf-8" />
+				<title>ac — {hour}</title>
+				<meta
+					name="description"
+					content="Animal Crossing music for any time & weather!"
+				/>
 				<meta
 					property="og:image"
 					content="https://cdn.dont-ping.me/leaf2.png"
 				/>
+				<meta name="twitter:card" content="summary" />
 				<link
 					href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
 					rel="stylesheet"
 				></link>
 			</Head>
-			<NextSeo
-				title={`ac — ${hour}`}
-				description="Animal Crossing music for any time & weather!"
-				openGraph={{
-					type: "website",
-					url: "https://ac.vercel.app/",
-					title: "ac — animal crossing music",
-					description: "Animal Crossing music for any time & weather!",
-				}}
-				twitter={{
-					handle: "@atmattt",
-					site: "@atmattt",
-					cardType: "summary_large_image",
-				}}
-			/>
 
 			<AnimatePresence initial={false} exitBeforeEnter>
 				<motion.div
