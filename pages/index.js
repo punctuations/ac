@@ -389,7 +389,7 @@ export default function Home(props) {
 					description: "Animal Crossing music for any time & weather!",
 					images: [
 						{
-							url: "https://ac.vercel.app/favicon.ico",
+							url: "https://cdn.dont-ping.me/leaf2.png",
 						},
 					],
 				}}
@@ -873,7 +873,7 @@ export default function Home(props) {
 				className="z-20 absolute left-2/6 bottom-8 text-white"
 				initial="initial"
 				animate="enter"
-				variants={fourth}
+				variants={third}
 			>
 				Developed by{" "}
 				<a
