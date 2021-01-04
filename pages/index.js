@@ -390,8 +390,8 @@ export default function Home(props) {
 					images: [
 						{
 							url: "https://cdn.dont-ping.me/leaf2.png",
-							width: "32",
-							height: "32",
+							width: "16",
+							height: "16",
 						},
 					],
 				}}
