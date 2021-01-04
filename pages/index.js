@@ -385,7 +385,12 @@ export default function Home(props) {
 					property="og:image"
 					content="https://cdn.dont-ping.me/leaf2.png"
 				/>
+				<meta
+					property="og:description"
+					content="Animal Crossing music for any time & weather!"
+				/>
 				<meta name="twitter:card" content="summary_large_image" />
+				<meta name="twitter:creator" content="@atmattt" />
 				<link
 					href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
 					rel="stylesheet"
