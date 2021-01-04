@@ -380,7 +380,6 @@ export default function Home(props) {
 					name="description"
 					content="Animal Crossing music for any time & weather!"
 				/>
-				<meta property="title" content="ac — animal crossing music" />
 				<meta
 					property="og:image"
 					content="https://cdn.dont-ping.me/leaf2.png"
