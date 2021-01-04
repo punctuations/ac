@@ -389,9 +389,7 @@ export default function Home(props) {
 					description: "Animal Crossing music for any time & weather!",
 					images: [
 						{
-							url: "https://cdn.dont-ping.me/leaf2.png",
-							width: "16",
-							height: "16",
+							url: "https://cdn.dont-ping.me/leaf.png",
 						},
 					],
 				}}
