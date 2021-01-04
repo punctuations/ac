@@ -385,7 +385,7 @@ export default function Home(props) {
 					property="og:image"
 					content="https://cdn.dont-ping.me/leaf2.png"
 				/>
-				<meta name="twitter:card" content="summary" />
+				<meta name="twitter:card" content="summary_large_image" />
 				<link
 					href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&amp;display=swap"
 					rel="stylesheet"
