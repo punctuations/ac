@@ -862,7 +862,7 @@ export default function Home(props) {
 				</div>
 			</div>
 			<motion.footer
-				className="z-20 absolute left-2/6 bottom-8 text-white"
+				className="z-20 absolute 2xl:left-2/6 xl:left-2/6 lg:left-2/6 md:left-2/6 sm:left-2/6 2xl:text-base xl:text-base lg:text-base md:text-base sm:text-base text-xs bottom-8 text-white"
 				initial="initial"
 				animate="enter"
 				variants={third}
