@@ -492,7 +492,7 @@ export default function Home(props) {
 											<p>
 												I believe in privacy, that is why there is{" "}
 												<span className="font-bold">no</span> tracking,
-												<br /> your location is soley used to get the weather.
+												<br /> your location is solely used to get the weather.
 												<br />
 												Your location is not touched other than this reason.
 												<br />
