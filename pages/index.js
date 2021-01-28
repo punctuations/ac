@@ -14,7 +14,7 @@ import {
 	menu,
 	playButton,
 } from "../components/animations";
-import { Howl, HowlOptions } from "howler";
+import { Howl } from "howler";
 
 export async function getStaticProps() {
 	const fetcher = (url) => fetch(url).then((r) => r.json());
