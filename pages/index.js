@@ -14,6 +14,7 @@ import {
 	menu,
 	playButton,
 } from "../components/animations";
+import { Howl, HowlOptions } from "howler";
 
 export async function getStaticProps() {
 	const fetcher = (url) => fetch(url).then((r) => r.json());
@@ -296,7 +297,9 @@ export default function Home(props) {
 		useEffect(() => {
 			if (!localStorage.getItem("weather")) {
 				setReady(true);
+				Howl.unload;
 				setWeatherPref(1);
+				Howl.load;
 			} else {
 				setReady(true);
 				Howl.unload;
