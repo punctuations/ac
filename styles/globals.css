@@ -29,10 +29,6 @@ img {
 	transition: 0.7s ease-in-out filter;
 }
 
-img:hover {
-	filter: blur(1px);
-}
-
 .indicator:hover {
 	filter: none;
 }
@@ -77,12 +73,6 @@ img:hover {
 	transition: 0.7s ease-in-out filter;
 	background-color: rgb(223, 211, 209, 0.6);
 }
-
-.play-bg:hover {
-	filter: blur(1px);
-	-webkit-filter: blur(1px);
-}
-
 .play-btn {
 	top: 7.8rem;
 	left: 16rem;

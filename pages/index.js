@@ -377,7 +377,7 @@ export default function Home(props) {
 				<link rel="icon" href="/favicon.ico" />
 				<meta name="theme-color" content="#16b816" />
 				<meta name="viewport" content="width=device-width" />
-				<meta charset="utf-8" />
+				<meta charSet="utf-8" />
 				<title>ac — {hour}</title>
 				<meta
 					name="description"
@@ -690,22 +690,22 @@ export default function Home(props) {
 						>
 							<img
 								src="/albums/newhorizons.jpeg"
-								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-20 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-10 rounded-md cursor-pointer 2xl:mt-0 xl:mt-0 lg:mt-0 md:mt-0 mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml4"
+								className="transition-opacity duration-700 hover:opacity-80 2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-20 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-10 rounded-md cursor-pointer 2xl:mt-0 xl:mt-0 lg:mt-0 md:mt-0 mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-auto"
 								onClick={() => setAlbum(0)}
 							></img>
 							<img
 								src="/albums/newleaf.jpeg"
-								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-20 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-10 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-2"
+								className="transition-opacity duration-700 hover:opacity-80 2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-20 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-10 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-2"
 								onClick={() => setAlbum(1)}
 							></img>
 							<img
 								src="/albums/cityfolk.jpeg"
-								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-20 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-10 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-2"
+								className="transition-opacity duration-700 hover:opacity-80 2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-20 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-10 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-2"
 								onClick={() => setAlbum(2)}
 							></img>
 							<img
 								src="/albums/GCN.jpeg"
-								className="2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-20 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-10 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-2"
+								className="transition-opacity duration-700 hover:opacity-80 2xl:w-64 xl:w-64 lg:w-64 md:w-64 w-20 2xl:h-32 xl:h-32 lg:h-32 md:h-32 h-10 rounded-md cursor-pointer mt-4 2xl:ml-0 xl:ml-0 lg:ml-0 md:ml-0 ml-2"
 								onClick={() => setAlbum(3)}
 							></img>
 						</motion.div>
@@ -748,7 +748,11 @@ export default function Home(props) {
 				</motion.div>
 				<div className="relative">
 					<div className="flex items-center justify-center">
-						<a href={gameRedirect()} target="_blank">
+						<a
+							href={gameRedirect()}
+							target="_blank"
+							className="transition-opacity duration-700 hover:opacity-90"
+						>
 							<motion.img
 								src={menuSelection()}
 								className="transform-origin z-0 mt-5 max-w-xl w-full rounded-xl shadow-lg cursor-pointer"
@@ -764,6 +768,7 @@ export default function Home(props) {
 							animate="play"
 							variants={playButton}
 							onClick={() => setPlayback(!playback)}
+							whileHover={{ scale: 1.02 }}
 						>
 							<AudioPlayerProvider>
 								<AudioPlayer
