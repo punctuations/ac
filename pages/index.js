@@ -449,7 +449,7 @@ export default function Home(props) {
 						fill="none"
 						viewBox="0 0 24 24"
 						stroke="#fff"
-						className="cog-shadow select-none w-5 h-5 2xl:opacity-50 xl:opacity-50 lg:opacity-50 md:opacity-50 sm:opacity-50 opacity-100 hover:opacity-75 cursor-pointer"
+						className="z-50 cog-shadow select-none w-5 h-5 2xl:opacity-50 xl:opacity-50 lg:opacity-50 md:opacity-50 sm:opacity-50 opacity-100 hover:opacity-75 cursor-pointer"
 						onClick={() => setOptions(!optionsMenu)}
 					>
 						<path
